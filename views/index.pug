@@ -11,8 +11,9 @@ html(lang="en")
                     li.nav-item
                         a.nav-link(href="#") Login
                     li.nav-item
-                        a.nav-link(href="#").btn.text-white(style={background:"#377dff"}) Signup
+                        a.nav-link(href="#" data-bs-toggle="modal" data-bs-target="#signup-modal").btn.text-white(style={background:"#377dff"}) Signup
             div.py-3
                 h1.display-1 Just for code
                 p Code for dream.
             img.float-end(src="images/main.webp" width="50%" alt="" srcset="")
+            include signup
