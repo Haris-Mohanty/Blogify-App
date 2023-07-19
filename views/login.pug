@@ -1,0 +1,18 @@
+div.modal#login-modal
+    div.modal-dialog.modal-lg.modal-dialog-centered
+        div.modal-content
+            div.modal-body.p-5
+                div.row
+                    div.col-md-6.d-flex.justify-content-center.align-items-center
+                        img(src="images/signup.jpg" width="100%" alt="" srcset="")
+                    div.col-md-6
+                        h1.display-4.fw-bold.mb-3(style="font-size:34px") Login Here
+                        form#login-form
+                            div.form-group.mb-4
+                                input.form-control.p-3(type="email" placeholder="Email" name="email")
+                            div.form-group.mb-4
+                                input.form-control.p-3(type="password" placeholder="Password" name="password")
+                            div.form-group.mb-3
+                                button.btn.btn-primary(type="submit") LogIn
+                            p Create an Account ? 
+                                a(href="#") Signup

@@ -9,7 +9,7 @@ html(lang="en")
                 img(src="images/front.png" width="120" alt="Logo" srcset="")
                 ul.navbar.nav.w-100.d-flex.justify-content-end
                     li.nav-item
-                        a.nav-link(href="#") Login
+                        a.nav-link(href="#" data-bs-toggle="modal" data-bs-target="#login-modal") Login
                     li.nav-item
                         a.nav-link(href="#" data-bs-toggle="modal" data-bs-target="#signup-modal").btn.text-white(style={background:"#377dff"}) Signup
             div.py-3
@@ -17,3 +17,4 @@ html(lang="en")
                 p Code for dream.
             img.float-end(src="images/main.webp" width="50%" alt="" srcset="")
             include signup
+            include login
