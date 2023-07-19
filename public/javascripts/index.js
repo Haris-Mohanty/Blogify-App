@@ -16,16 +16,21 @@ $(document).ready(() => {
 });
 
 //******* SIGNUP REQUEST  ********/
-$(document).ready((e) => {
-  e.preventDefault();
-  $.ajax({
-    type: "POST",
-    url: "api/signup",
-    data: {
-      name: Haris,
-    },
-    success: function (response) {
-      console.log(response);
-    },
+$(document).ready(() => {
+  $("#signup-form").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "api/signup",
+      data: {
+        company: $("[name='name']").val(),
+        email: $("[name='email']").val(),
+        mobile: $("[name='mobile']").val(),
+        password: $("[name='password']").val(),
+      },
+      success: function (response) {
+        console.log(response);
+      },
+    });
   });
 });
