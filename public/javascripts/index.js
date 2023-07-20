@@ -22,12 +22,9 @@ $(document).ready(() => {
     $.ajax({
       type: "POST",
       url: "api/signup",
-      data: {
-        company: $("[name='name']").val(),
-        email: $("[name='email']").val(),
-        mobile: $("[name='mobile']").val(),
-        password: $("[name='password']").val(),
-      },
+      data: new FormData(e.target),
+      processData: false,
+      contentType: false,
       success: function (response) {
         console.log(response);
       },
