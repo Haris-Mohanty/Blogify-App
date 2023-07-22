@@ -12,6 +12,7 @@ const app = express();
 const indexRoutes = require("./routes/indexRoutes");
 const signupRouter = require("./routes/signupRoutes");
 const companyRoutes = require("./routes/companyRoutes");
+const tokenService = require("./services/tokenService");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -26,6 +27,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRoutes);
 app.use("/api/signup", signupRouter);
+//API security
+app.use((req, res, next) => {
+  next();
+});
 app.use("/api/private/company", companyRoutes);
 
 // catch 404 and forward to error handler
