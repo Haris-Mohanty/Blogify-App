@@ -7,17 +7,11 @@ const jwt = require("jsonwebtoken");
 
 const secretKey = process.env.SECRET_KEY;
 
+const tokenService = require("../services/tokenService");
+
 router.post("/", (req, res) => {
-  const fromData = req.body;
-  const token = jwt.sign(
-    {
-      iss: "",
-      data: fromData,
-    },
-    secretKey,
-    { expiresIn: 120 }
-  );
-  console.log(token);
+  let expiresIn = 120;
+  tokenService.createToken(req, expiresIn);
 });
 
 module.exports = router;
