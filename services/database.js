@@ -6,6 +6,7 @@ mongoose.connect(url);
 
 const createRecord = async (data) => {
   const dataRes = await new companySchema(data).save();
+  return dataRes;
 };
 
 module.exports = {

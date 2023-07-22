@@ -1,7 +1,19 @@
 const tokenService = require("../services/tokenService");
-const createCompany = (req, res) => {
+const dataBase = require("../services/database");
+
+const createCompany = async (req, res) => {
   const token = tokenService.verifyToken(req);
-  console.log(token);
+
+  if (token) {
+    const data = token.data;
+    const dataRes = await dataBase.createRecord(data);
+    console.log(dataRes);
+  } else {
+    res.status(401);
+    res.json({
+      message: "Permission Denied!",
+    });
+  }
 };
 
 module.exports = {
