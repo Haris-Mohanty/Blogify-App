@@ -27,15 +27,24 @@ const verify = (req) => {
       const tmp = jwt.verify(token, secretKey);
       const reqCommingFrom = tmp.iss;
       if (issService.indexOf(reqCommingFrom) != -1) {
-        return true;
+        return {
+          isVerified: true,
+          data: tmp.data,
+        };
       } else {
-        return false;
+        return {
+          isVerified: false,
+        };
       }
     } catch (err) {
-      return false;
+      return {
+        isVerified: false,
+      };
     }
   } else {
-    return false;
+    return {
+      isVerified: false,
+    };
   }
 };
 

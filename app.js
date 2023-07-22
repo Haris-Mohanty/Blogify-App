@@ -30,7 +30,7 @@ app.use("/api/signup", signupRouter);
 //API security
 app.use((req, res, next) => {
   const isVerified = tokenService.verifyToken(req);
-  if (isVerified) {
+  if (isVerified.isVerified) {
     next();
   } else {
     res.status(401);
