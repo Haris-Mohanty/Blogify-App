@@ -7,6 +7,7 @@ const companySchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
   },
   mobile: Number,
   emailVerified: {
@@ -18,9 +19,17 @@ const companySchema = new mongoose.Schema({
   },
 });
 
-//Duplicate data checked
-companySchema.pre("save", function () {
-  const query
+//Duplicate data checked(company name)
+companySchema.pre("save", async function (next) {
+  const query = {
+    company: this.company,
+  };
+  const length = await mongoose.model("Company").countDocuments(query);
+  if (length > 0) {
+    throw next("Please change the name, It is already exist!");
+  } else {
+    next();
+  }
 });
 
 //****** EXPORT *****/
