@@ -5,7 +5,7 @@ const postRequest = (req) => {
     .post(req.api) //api
     .send({ token: req.data }) //data
     .end((err, dataRes) => {
-    //   console.log(dataRes);
+      return dataRes.body;
     });
 };
 

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const issService = require("../services/issService");
 
 require("dotenv").config();
-
 const secretKey = process.env.SECRET_KEY;
 
 const create = async (req, expiresIn) => {
