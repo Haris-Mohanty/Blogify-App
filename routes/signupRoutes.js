@@ -9,9 +9,10 @@ const secretKey = process.env.SECRET_KEY;
 
 const tokenService = require("../services/tokenService");
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   let expiresIn = 120;
-  tokenService.createToken(req, expiresIn);
+  const token = await tokenService.createToken(req, expiresIn);
+  console.log(token);
 });
 
 module.exports = router;

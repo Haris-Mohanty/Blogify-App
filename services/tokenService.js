@@ -4,12 +4,12 @@ require("dotenv").config();
 
 const secretKey = process.env.SECRET_KEY;
 
-const create = (req, expiresIn) => {
+const create = async (req, expiresIn) => {
   const formData = req.body;
   const endPoint = req.get("origin");
   const api = req.originalUrl;
   const iss = endPoint + api;
-  jwt.sign(
+  const token = await jwt.sign(
     {
       iss: iss,
       data: formData,
@@ -17,6 +17,7 @@ const create = (req, expiresIn) => {
     secretKey,
     { expiresIn: expiresIn }
   );
+  return token;
 };
 
 const verify = () => {};
