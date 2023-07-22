@@ -12,6 +12,7 @@ const app = express();
 const indexRoutes = require("./routes/indexRoutes");
 const signupRouter = require("./routes/signupRoutes");
 const companyRoutes = require("./routes/companyRoutes");
+const userRouter = require("./routes/userRoutes");
 const tokenService = require("./services/tokenService");
 
 // view engine setup
@@ -27,7 +28,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRoutes);
 app.use("/api/signup", signupRouter);
+
 //API security
+app.use("/api/private/user", userRouter);
 app.use((req, res, next) => {
   const isVerified = tokenService.verifyToken(req);
   if (isVerified.isVerified) {

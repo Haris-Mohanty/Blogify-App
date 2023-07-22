@@ -8,9 +8,18 @@ const createCompany = async (req, res) => {
     const data = token.data;
     try {
       const dataRes = await dataBase.createRecord(data);
-      console.log(dataRes);
+      res.status(200);
+      res.json({
+        isCompanyCreated: true,
+        message: "Company Created Successfully!",
+        data: dataRes,
+      });
     } catch (err) {
-      console.log(err);
+      res.status(409);
+      res.json({
+        isCompanyCreated: false,
+        message: err,
+      });
     }
   } else {
     res.status(401);
