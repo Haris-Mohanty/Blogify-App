@@ -29,7 +29,15 @@ app.use("/", indexRoutes);
 app.use("/api/signup", signupRouter);
 //API security
 app.use((req, res, next) => {
-  next();
+  const isVerified = tokenService.verifyToken(req);
+  if (isVerified) {
+    next();
+  } else {
+    res.status(401);
+    res.json({
+      message: "Permission Denied!",
+    });
+  }
 });
 app.use("/api/private/company", companyRoutes);
 
