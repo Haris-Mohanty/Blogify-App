@@ -32,5 +32,18 @@ companySchema.pre("save", async function (next) {
   }
 });
 
+//Duplicate data checked(company name)
+companySchema.pre("save", async function (next) {
+  const query = {
+    email: this.company,
+  };
+  const length = await mongoose.model("Company").countDocuments(query);
+  if (length > 0) {
+    throw next("Please change the name, It is already exist!");
+  } else {
+    next();
+  }
+});
+
 //****** EXPORT *****/
 module.exports = mongoose.model("Company", companySchema);
