@@ -22,4 +22,4 @@ const companySchema = new mongoose.Schema({
 });
 
 //****** EXPORT *****/
-module.exports = mongoose.model("Inventory", companySchema);
+module.exports = mongoose.model("Company", companySchema);
