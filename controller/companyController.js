@@ -6,8 +6,12 @@ const createCompany = async (req, res) => {
 
   if (token) {
     const data = token.data;
-    const dataRes = await dataBase.createRecord(data);
-    console.log(dataRes);
+    try {
+      const dataRes = await dataBase.createRecord(data);
+      console.log(dataRes);
+    } catch (err) {
+      console.log(err);
+    }
   } else {
     res.status(401);
     res.json({

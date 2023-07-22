@@ -12,13 +12,15 @@ const companySchema = new mongoose.Schema({
   emailVerified: {
     type: Boolean,
   },
-  password: {
-    type: String,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
+});
+
+//Duplicate data checked
+companySchema.pre("save", function () {
+  const query
 });
 
 //****** EXPORT *****/
