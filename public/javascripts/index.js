@@ -34,6 +34,10 @@ $(document).ready(() => {
         $(".signup-btn").removeClass("d-none");
         console.log(response);
         //Handle Error(show err message)
+        const label = "." + response.message.label;
+        const field = "." + response.message.field;
+        $(field).addClass("border border-danger");
+        $(field + "-error").html(label);
       },
       error: function (error) {
         console.log(error);
