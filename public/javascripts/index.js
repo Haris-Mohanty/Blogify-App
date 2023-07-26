@@ -25,7 +25,13 @@ $(document).ready(() => {
       data: new FormData(e.target),
       processData: false,
       contentType: false,
+      beforeSend: function () {
+        $(".before-send").removeClass("d-none");
+        $(".signup-btn").addClass("d-none");
+      },
       success: function (response) {
+        $(".before-send").addClass("d-none");
+        $(".signup-btn").removeClass("d-none");
         console.log(response);
       },
       error: function (error) {

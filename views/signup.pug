@@ -17,6 +17,9 @@ div.modal.animate__animated.animate__zoomIn#signup-modal
                             div.form-group.mb-3
                                 input.form-control.p-3(type="password" placeholder="Password" name="password")
                             div.form-group.mb-1
-                                button.btn.btn-primary(type="submit") SignUp
+                                button.btn.btn-primary.signup-btn(type="submit") SignUp
+                                button.btn.btn-danger.disabled.d-none.before-send
+                                    span.spinner-grow.spinner-grow-sm
+                                    span Processing...
                             p Already have an Account ? 
                                 a(href="#" id="login-modal-req") Login
