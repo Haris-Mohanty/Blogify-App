@@ -26,7 +26,11 @@ companySchema.pre("save", async function (next) {
   };
   const length = await mongoose.model("Company").countDocuments(query);
   if (length > 0) {
-    throw next("Please change the Name, It is already exist!");
+    const cpmErr = {
+      label: "Please change the Name, It is already exist!",
+      field: "company-name",
+    };
+    throw next(cpmErr);
   } else {
     next();
   }
@@ -39,7 +43,11 @@ companySchema.pre("save", async function (next) {
   };
   const length = await mongoose.model("Company").countDocuments(query);
   if (length > 0) {
-    throw next("Please change the Email, It is already exist!");
+    const emailErr = {
+      label: "Please change the Email, It is already exist!",
+      field: "company-email",
+    };
+    throw next(emailErr);
   } else {
     next();
   }

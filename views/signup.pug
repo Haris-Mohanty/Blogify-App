@@ -9,9 +9,11 @@ div.modal.animate__animated.animate__zoomIn#signup-modal
                         h1.display-4.fw-bold(style="font-size:34px") Signup Here
                         form#signup-form
                             div.form-group.mb-3
-                                input.form-control.p-3(type="text" placeholder="Company Name" name="company")
+                                input.form-control.p-3.company-name(type="text" placeholder="Company Name" name="company")
+                                span.company-name-error.text-danger
                             div.form-group.mb-3
-                                input.form-control.p-3(type="email" placeholder="Email" name="email")
+                                input.form-control.p-3.company-email(type="email" placeholder="Email" name="email")
+                                span.company-email-error.text-danger
                             div.form-group.mb-3
                                 input.form-control.p-3(type="number" placeholder="Mobile" name="mobile")
                             div.form-group.mb-3

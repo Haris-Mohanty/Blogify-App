@@ -33,6 +33,7 @@ $(document).ready(() => {
         $(".before-send").addClass("d-none");
         $(".signup-btn").removeClass("d-none");
         console.log(response);
+        //Handle Error(show err message)
       },
       error: function (error) {
         console.log(error);
