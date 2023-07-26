@@ -59,7 +59,7 @@ $(document).ready(() => {
   $("#login-form").submit((e) => {
     e.preventDefault();
     $.ajax({
-      type: "GET",
+      type: "POST",
       url: "api/login",
       data: new FormData(e.target),
       processData: false,
