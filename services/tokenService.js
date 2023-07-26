@@ -20,6 +20,22 @@ const create = async (req, expiresIn) => {
   return token;
 };
 
+const createCustomToken = async (data, expiresIn) => {
+  const formData = data.body;
+  const endPoint = data.endPoint;
+  const api = data.originalUrl;
+  const iss = endPoint + api;
+  const token = await jwt.sign(
+    {
+      iss: iss,
+      data: formData,
+    },
+    secretKey,
+    { expiresIn: expiresIn }
+  );
+  return token;
+};
+
 const verify = (req) => {
   const token = req.body.token;
   if (token) {
@@ -51,4 +67,5 @@ const verify = (req) => {
 module.exports = {
   createToken: create,
   verifyToken: verify,
+  createCustomToken: createCustomToken,
 };

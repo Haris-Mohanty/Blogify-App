@@ -30,7 +30,6 @@ app.use("/", indexRoutes);
 app.use("/api/signup", signupRouter);
 
 //API security
-app.use("/api/private/user", userRouter);
 app.use((req, res, next) => {
   const isVerified = tokenService.verifyToken(req);
   if (isVerified.isVerified) {
@@ -43,6 +42,7 @@ app.use((req, res, next) => {
   }
 });
 app.use("/api/private/company", companyRoutes);
+app.use("/api/private/user", userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

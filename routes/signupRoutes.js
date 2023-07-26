@@ -15,7 +15,21 @@ router.post("/", async (req, res) => {
   });
   //Requesting User API
   if (companyRes.isCompanyCreated) {
-    
+    const newUser = {
+      body: {
+        uid: companyRes.data._id,
+        password: req.body.password,
+      },
+      endPoint: req.get("origin"),
+      originalUrl: req.originalUrl,
+    };
+    const userToken = await tokenService.createCustomToken(newUser, expiresIn);
+
+    const userRes = await httpService.postRequest({
+      endPoint: req.get("origin"),
+      api: "/api/private/user",
+      data: userToken,
+    });
   } else {
     res.json(companyRes);
   }
