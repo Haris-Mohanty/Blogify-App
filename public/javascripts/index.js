@@ -54,6 +54,30 @@ $(document).ready(() => {
   });
 });
 
+//******* LOGIN REQUEST  ********/
+$(document).ready(() => {
+  $("#login-form").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "api/login",
+      data: new FormData(e.target),
+      processData: false,
+      contentType: false,
+      beforeSend: function () {
+        $(".before-send").removeClass("d-none");
+        $(".login-btn").addClass("d-none");
+      },
+      success: function (response) {
+        console.log(response);
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  });
+});
+
 //Remove message
 const resetValidator = (field) => {
   $(field).removeClass("border-danger");
