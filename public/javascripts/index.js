@@ -32,12 +32,20 @@ $(document).ready(() => {
       success: function (response) {
         $(".before-send").addClass("d-none");
         $(".signup-btn").removeClass("d-none");
-        console.log(response);
-        //Handle Error(show err message)
-        const label = "." + response.message.label;
-        const field = "." + response.message.field;
-        $(field).addClass("border border-danger");
-        $(field + "-error").html(label);
+
+        if (response.isCompanyCreated) {
+          //Redirect to Profile Page
+        } else {
+          //Handle Error(show err message)
+          const label = "." + response.message.label;
+          const field = "." + response.message.field;
+          $(field).addClass("border border-danger");
+          $(field + "-error").html(label);
+          //Remove message
+          setTimeout(() => {
+            resetValidator(field);
+          }, 3000);
+        }
       },
       error: function (error) {
         console.log(error);
@@ -45,3 +53,9 @@ $(document).ready(() => {
     });
   });
 });
+
+//Remove message
+const resetValidator = (field) => {
+  $(field).removeClass("border-danger");
+  $(field + "-error").html("");
+};
