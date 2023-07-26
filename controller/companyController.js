@@ -7,7 +7,7 @@ const createCompany = async (req, res) => {
   if (token) {
     const data = token.data;
     try {
-      const dataRes = await dataBase.createRecord(data);
+      const dataRes = await dataBase.createRecord(data, "companySchema");
       res.status(200);
       res.json({
         isCompanyCreated: true,
