@@ -10,7 +10,7 @@ const postRequest = async (req) => {
 
 const getRequest = async (req) => {
   const response = await ajax(req.endPoint) //end point
-    .post(req.api + "/" + req.data) //api & data
+    .get(req.api + "/" + req.data) //api & data
     .set({ "X-Auth-Token": req.data }); //token
 
   return response.body;

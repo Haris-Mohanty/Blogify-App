@@ -29,6 +29,14 @@ const createCompany = async (req, res) => {
   }
 };
 
+const getCompanyId = (req, res) => {
+  const token = tokenService.verifyToken(req);
+  if(token.isVerified){
+    
+  }
+};
+
 module.exports = {
   createCompany: createCompany,
+  getCompanyId: getCompanyId,
 };

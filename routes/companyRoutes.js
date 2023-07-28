@@ -7,7 +7,6 @@ router.post("/", (req, res) => {
 });
 
 router.get("/:query", (req, res) => {
-  console.log(req.params.query);
+  companyController.getCompanyId(req, res);
 });
-
 module.exports = router;

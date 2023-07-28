@@ -38,7 +38,12 @@ const createCustomToken = async (data, expiresIn) => {
 };
 
 const verify = (req) => {
-  const token = req.body.token;
+  let token = "";
+  if (req.method == "GET") {
+    token = req.headers["x-auth-token"];
+  } else {
+    token = req.body.token;
+  }
   if (token) {
     try {
       const tmp = jwt.verify(token, secretKey);
