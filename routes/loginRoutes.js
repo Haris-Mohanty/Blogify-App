@@ -12,7 +12,13 @@ router.post("/", async (req, res) => {
     api: "/api/private/company",
     data: token,
   });
-  console.log(companyRes)
+  //User id get
+  if (companyRes.isCompanyExists) {
+    const uid = companyRes.data[0]._id;
+    console.log(uid)
+  } else {
+    res.json(companyRes);
+  }
 });
 
 module.exports = router;
