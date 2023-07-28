@@ -29,10 +29,33 @@ const createCompany = async (req, res) => {
   }
 };
 
-const getCompanyId = (req, res) => {
-  const token = tokenService.verifyToken(req);
-  if(token.isVerified){
-    
+const getCompanyId = async (req, res) => {
+  const token = await tokenService.verifyToken(req);
+  if (token.isVerified) {
+    //Get email
+    const query = {
+      email: token.data.email,
+    };
+    const companyRes = await dataBase.getRecordByQuery(query, "companySchema");
+    if (companyRes.length > 0) {
+      res.status(200);
+      res.json({
+        isCompanyExists: true,
+        message: "Company Found Successfully!",
+        data: companyRes,
+      });
+    } else {
+      res.status(404);
+      res.json({
+        isCompanyExists: false,
+        message: "Company Not Found!",
+      });
+    }
+  } else {
+    res.status(401);
+    res.json({
+      message: "Permission Denied!",
+    });
   }
 };
 
