@@ -30,8 +30,25 @@ const getUserPassword = async (req, res) => {
   if (token.isVerified) {
     const query = token.data;
     const dataRes = await dataBase.getRecordByQuery(query, "userSchema");
-    console.log(dataRes)
 
+    if (dataRes.length > 0) {
+      res.status(200);
+      res.json({
+        isCompanyExists: true,
+        message: "Company Found!",
+        data: dataRes,
+      });
+      //Get user password
+      if(userRes.isCompanyExists){
+        
+      }
+    } else {
+      res.status(404);
+      res.json({
+        isCompanyExists: false,
+        message: "Company Not Found!",
+      });
+    }
   } else {
     res.status(401);
     res.json({
