@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
       api: "/api/private/user",
       data: uidToken,
     });
+    console.log(userRes);
   } else {
     res.json(companyRes);
   }
