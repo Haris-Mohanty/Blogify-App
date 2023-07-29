@@ -25,7 +25,20 @@ const createUser = async (req, res) => {
   }
 };
 
-const getUserPassword = (req, res) => {};
+const getUserPassword = async (req, res) => {
+  const token = await tokenService.verifyToken(req);
+  if (token.isVerified) {
+    const query = token.data;
+    const dataRes = await dataBase.getRecordByQuery(query, "userSchema");
+    console.log(dataRes)
+
+  } else {
+    res.status(401);
+    res.json({
+      message: "Unauthenticated User!",
+    });
+  }
+};
 
 module.exports = {
   createUser: createUser,
