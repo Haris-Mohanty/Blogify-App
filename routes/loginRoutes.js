@@ -24,7 +24,12 @@ router.post("/", async (req, res) => {
     };
 
     const uidToken = await tokenService.createCustomToken(query, expiresIn);
-    console.log(uidToken)
+    //Get user res
+    const userRes = await httpService.getRequest({
+      endPoint: req.get("origin"),
+      api: "/api/private/user",
+      data: uidToken,
+    });
   } else {
     res.json(companyRes);
   }
