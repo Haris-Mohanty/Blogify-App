@@ -5,8 +5,9 @@ const encrypt = async (data) => {
   return encryptedData;
 };
 
-const dcrypt = (realPassword, typePassword) => {
-  bcrypt.compare
+const dcrypt = async (realPassword, typePassword) => {
+  const isVerified = await bcrypt.compare(typePassword, realPassword);
+  return isVerified;
 };
 
 module.exports = {
