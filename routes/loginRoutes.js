@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     //Get user password
     if (userRes.isCompanyExists) {
       const realPassword = userRes.data[0].password;
-      console.log(realPassword);
+      bcryptService.dcrypt(realPassword, req.body.password);
     }
   } else {
     res.json(companyRes);
