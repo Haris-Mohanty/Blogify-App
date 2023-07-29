@@ -25,6 +25,9 @@ const createUser = async (req, res) => {
   }
 };
 
+const getUserPassword = (req, res) => {};
+
 module.exports = {
   createUser: createUser,
+  getUserPassword: getUserPassword,
 };

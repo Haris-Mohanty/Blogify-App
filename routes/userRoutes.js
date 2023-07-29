@@ -9,7 +9,7 @@ route.post("/", (req, res) => {
 });
 
 route.get("/:query", (req, res) => {
-  res.json("Success");
+  userController.getUserPassword(req, res);
 });
 
 module.exports = route;
