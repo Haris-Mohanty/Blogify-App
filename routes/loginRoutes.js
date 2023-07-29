@@ -15,7 +15,16 @@ router.post("/", async (req, res) => {
   //User id get
   if (companyRes.isCompanyExists) {
     const uid = companyRes.data[0]._id;
-    console.log(uid)
+    const query = {
+      body: {
+        uid: uid,
+      },
+      endPoint: req.get("origin"),
+      originalUrl: req.originalUrl,
+    };
+
+    const uidToken = await tokenService.createCustomToken(query, expiresIn);
+    console.log(uidToken)
   } else {
     res.json(companyRes);
   }
