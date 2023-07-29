@@ -38,10 +38,8 @@ const getUserPassword = async (req, res) => {
         message: "Company Found!",
         data: dataRes,
       });
-      //Get user password
-      if(userRes.isCompanyExists){
-        
-      }
+
+      //
     } else {
       res.status(404);
       res.json({

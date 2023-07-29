@@ -30,7 +30,11 @@ router.post("/", async (req, res) => {
       api: "/api/private/user",
       data: uidToken,
     });
-    console.log(userRes);
+    //Get user password
+    if (userRes.isCompanyExists) {
+      const realPassword = userRes.data[0].password;
+      console.log(realPassword);
+    }
   } else {
     res.json(companyRes);
   }
