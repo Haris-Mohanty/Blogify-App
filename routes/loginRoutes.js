@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const tokenService = require("../services/tokenService");
 const httpService = require("../services/httpService");
+const bcryptService = require("../services/bcryptService");
 
 router.post("/", async (req, res) => {
   let expiresIn = 120;
