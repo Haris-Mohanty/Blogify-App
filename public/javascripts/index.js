@@ -78,6 +78,8 @@ $(document).ready(() => {
         //Handle Error(show err message)
       },
       error: function (error) {
+        $(".before-send").addClass("d-none");
+        $(".login-btn").removeClass("d-none");
         if (error.status == 404) {
           $(".username").addClass("border border-danger");
           $(".username-error").html("User Not Found!");
