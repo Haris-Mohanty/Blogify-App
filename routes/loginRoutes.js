@@ -38,7 +38,13 @@ router.post("/", async (req, res) => {
         realPassword,
         req.body.password
       );
-      res.json(islogged);
+      
+      //Redirect to profile page
+      if(islogged){
+
+      }else{
+        
+      }
     }
   } else {
     res.json(companyRes);
