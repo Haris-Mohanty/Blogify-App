@@ -70,6 +70,8 @@ $(document).ready(() => {
       },
       success: function (response) {
         console.log(response);
+        $(".before-send").addClass("d-none");
+        $(".login-btn").removeClass("d-none");
       },
       error: function (error) {
         console.log(error);

@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
         realPassword,
         req.body.password
       );
-      console.log(islogged);
+      res.json(islogged);
     }
   } else {
     res.json(companyRes);
