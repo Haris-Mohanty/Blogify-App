@@ -42,7 +42,8 @@ router.post("/", async (req, res) => {
       //*****  REDIRECT TO PROFILE PAGE ******/
       if (islogged) {
         //Generate token
-        tokenService.createCustomToken(query, )
+        const sevenDaysInSecond = 604800;
+        const authToken = await tokenService.createCustomToken(query, sevenDaysInSecond);
         res.status(200).json({
           islogged: true,
           message: "Success",
