@@ -71,13 +71,20 @@ $(document).ready(() => {
       success: function (response) {
         $(".before-send").addClass("d-none");
         $(".login-btn").removeClass("d-none");
-        if(response.islogged){
-          window.location = "/profile"
+        if (response.islogged) {
+          window.location = "/profile";
         }
-        
+
+        //Handle Error(show err message)
       },
       error: function (error) {
-        console.log(error);
+        if (error.status == 404) {
+          $(".username").addClass("border border-danger");
+          $(".username-error").html("User Not Found!");
+        } else {
+          $(".password").addClass("border border-danger");
+          $(".password-error").html("Wrong Password!");
+        }
       },
     });
   });
