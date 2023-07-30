@@ -38,12 +38,20 @@ router.post("/", async (req, res) => {
         realPassword,
         req.body.password
       );
-      
-      //Redirect to profile page
-      if(islogged){
 
-      }else{
-        
+      //*****  REDIRECT TO PROFILE PAGE ******/
+      if (islogged) {
+        //Generate token
+        tokenService.createCustomToken(query, )
+        res.status(200).json({
+          islogged: true,
+          message: "Success",
+        });
+      } else {
+        res.status(401).json({
+          islogged: false,
+          message: "Wrong Password!",
+        });
       }
     }
   } else {
