@@ -74,10 +74,9 @@ $(document).ready(() => {
         if (response.islogged) {
           window.location = "/profile";
         }
-
-        //Handle Error(show err message)
       },
       error: function (error) {
+        //Handle Error(show err message)
         $(".before-send").addClass("d-none");
         $(".login-btn").removeClass("d-none");
         if (error.status == 404) {
@@ -87,13 +86,19 @@ $(document).ready(() => {
           setTimeout(() => {
             resetValidator(field);
           }, 3000);
-        } else {
+        } else if (error.status == 401) {
           const field = ".password";
           $(".password").addClass("border border-danger");
           $(".password-error").html("Wrong Password!");
           setTimeout(() => {
             resetValidator(field);
           }, 3000);
+        } else {
+          FileSystemWritableFileStream(
+            error.status,
+            "internal Server Error1",
+            "error"
+          );
         }
       },
     });
