@@ -74,7 +74,7 @@ $(document).ready(() => {
         if(response.islogged){
           window.location = "/profile"
         }
-        console.log(response)
+        
       },
       error: function (error) {
         console.log(error);

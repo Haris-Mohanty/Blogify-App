@@ -59,8 +59,12 @@ router.post("/", async (req, res) => {
           message: "Wrong Password!",
         });
       }
+    } else {
+      res.status(userRes.status);
+      res.json(userRes);
     }
   } else {
+    res.status(404);
     res.json(companyRes);
   }
 });
