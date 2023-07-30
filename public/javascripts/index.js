@@ -69,9 +69,12 @@ $(document).ready(() => {
         $(".login-btn").addClass("d-none");
       },
       success: function (response) {
-        console.log(response);
         $(".before-send").addClass("d-none");
         $(".login-btn").removeClass("d-none");
+        if(response.islogged){
+          window.location = "/profile"
+        }
+        console.log(response)
       },
       error: function (error) {
         console.log(error);
