@@ -9,9 +9,11 @@ div.modal.animate__animated.animate__zoomIn#login-modal
                         h1.display-4.fw-bold.mb-3(style="font-size:34px") Login Here
                         form#login-form
                             div.form-group.mb-4
-                                input.form-control.p-3(type="email" placeholder="Email" name="email")
+                                input.form-control.username.p-3(type="email" placeholder="Email" name="email")
+                                span.username-error.text-danger
                             div.form-group.mb-4
-                                input.form-control.p-3(type="password" placeholder="Password" name="password")
+                                input.form-control.password.p-3(type="password" placeholder="Password" name="password")
+                                span.password-error.text-danger
                             div.form-group.mb-3
                                 button.btn.btn-primary.login-btn(type="submit") LogIn
                                 button.btn.btn-danger.disabled.d-none.before-send
