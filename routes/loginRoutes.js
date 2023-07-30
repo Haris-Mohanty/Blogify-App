@@ -43,9 +43,12 @@ router.post("/", async (req, res) => {
       if (islogged) {
         //Generate token
         const sevenDaysInSecond = 604800;
-        const authToken = await tokenService.createCustomToken(query, sevenDaysInSecond);
+        const authToken = await tokenService.createCustomToken(
+          query,
+          sevenDaysInSecond
+        );
         //Set Cookie
-        res.cookie
+        res.cookie("authToken", authToken);
         res.status(200).json({
           islogged: true,
           message: "Success",
