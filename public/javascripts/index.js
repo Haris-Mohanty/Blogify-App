@@ -81,11 +81,19 @@ $(document).ready(() => {
         $(".before-send").addClass("d-none");
         $(".login-btn").removeClass("d-none");
         if (error.status == 404) {
+          const field = ".username";
           $(".username").addClass("border border-danger");
           $(".username-error").html("User Not Found!");
+          setTimeout(() => {
+            resetValidator(field);
+          }, 3000);
         } else {
+          const field = ".password";
           $(".password").addClass("border border-danger");
           $(".password-error").html("Wrong Password!");
+          setTimeout(() => {
+            resetValidator(field);
+          }, 3000);
         }
       },
     });
