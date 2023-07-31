@@ -1,9 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.sidenav{
-    width: 250px;
-    height: 100vh;
+.sidenav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to top, #1e37c2 0%, #1e37c2 1%, #2a5298 100%);
 }
