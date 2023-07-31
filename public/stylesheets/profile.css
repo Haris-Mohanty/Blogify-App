@@ -34,3 +34,13 @@
 button {
   box-shadow: none !important;
 }
+
+/* MEDIA QUERY */
+@media (max-width: 768px) {
+    .sidenav-open{
+
+    }
+    .section-close{
+        
+    }
+}
