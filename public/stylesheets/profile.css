@@ -8,23 +8,29 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to top, #1e37c2 0%, #1e37c2 1%, #2a5298 100%);
+  background-image: linear-gradient(
+    to top,
+    #1e37c2 0%,
+    #1e37c2 1%,
+    #2a5298 100%
+  );
+  transition: 0.5s ease;
 }
-.sidenav-open{
-    width: 250px;
+.sidenav-open {
+  width: 250px;
 }
-.sidenav-close{
-    width: 0;
+.sidenav-close {
+  width: 0;
 }
-.section{
-    /* margin-left: 250px; */
+.section {
+  transition: 0.5s ease;
 }
-.section-open{
-    margin-left: 250px;
+.section-open {
+  margin-left: 250px;
 }
-.section-close{
-    margin-left: 0;
+.section-close {
+  margin-left: 0;
 }
-button{
-    box-shadow: none !important;
+button {
+  box-shadow: none !important;
 }
