@@ -36,11 +36,17 @@ button {
 }
 
 /* MEDIA QUERY */
-@media (max-width: 768px) {
-    .sidenav-open{
-
-    }
-    .section-close{
-        
-    }
+@media (max-width: 600px) {
+  .sidenav-open {
+    width: 60px;
+  }
+  .sidenav-close {
+    width: 0px;
+  }
+  .section-open {
+    margin-left: 60px;
+  }
+  .section-close {
+    margin-left: 0;
+  }
 }
