@@ -4,13 +4,27 @@
   box-sizing: border-box;
 }
 .sidenav {
-  width: 250px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background-image: linear-gradient(to top, #1e37c2 0%, #1e37c2 1%, #2a5298 100%);
 }
+.sidenav-open{
+    width: 250px;
+}
+.sidenav-close{
+    width: 0;
+}
 .section{
+    /* margin-left: 250px; */
+}
+.section-open{
     margin-left: 250px;
+}
+.section-close{
+    margin-left: 0;
+}
+button{
+    box-shadow: none !important;
 }
