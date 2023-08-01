@@ -1,3 +1,7 @@
+//******* REDIRECT USER IF ALREADY LOGGED *******/
+if(document.cookie())
+
+
 //****** Request Login Modal ******/
 $(document).ready(() => {
   $("#login-modal-req").click((e) => {
