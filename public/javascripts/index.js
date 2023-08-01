@@ -1,6 +1,7 @@
 //******* REDIRECT USER IF ALREADY LOGGED *******/
-if(document.cookie())
-
+if (document.cookie.indexOf("authToken") != -1) {
+  window.location = "/profile";
+}
 
 //****** Request Login Modal ******/
 $(document).ready(() => {
