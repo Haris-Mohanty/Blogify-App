@@ -39,7 +39,7 @@ app.use((req, res, next) => {
     next();
   } else {
     //Cookie remove
-    
+    res.clearCookie("authToken");
     res.status(401);
     //When token not verify redirect to homepage
     res.redirect("/");
