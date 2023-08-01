@@ -38,6 +38,8 @@ app.use((req, res, next) => {
   if (isVerified.isVerified) {
     next();
   } else {
+    //Cookie remove
+    
     res.status(401);
     //When token not verify redirect to homepage
     res.redirect("/");
