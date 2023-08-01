@@ -40,8 +40,12 @@ const createCustomToken = async (data, expiresIn) => {
 const verify = (req) => {
   let token = "";
   if (req.method == "GET") {
-    console.log(req.cookies.authToken)
-    token = req.headers["x-auth-token"];
+    //Auth token
+    if (req.headers["x-auth-token"]) {
+      token = req.headers["x-auth-token"];
+    } else {
+      token = req.cookies.authToken;
+    }
   } else {
     token = req.body.token;
   }
