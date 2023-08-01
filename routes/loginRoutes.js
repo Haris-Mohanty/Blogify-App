@@ -42,13 +42,13 @@ router.post("/", async (req, res) => {
       //*****  REDIRECT TO PROFILE PAGE ******/
       if (islogged) {
         //Generate token
-        const sevenDaysInSecond = 604800;
+        const oneDaysInMlSecond = 86400000;
         const authToken = await tokenService.createCustomToken(
           query,
-          sevenDaysInSecond
+          oneDaysInMlSecond
         );
         //Set Cookie
-        res.cookie("authToken", authToken, { maxAge: sevenDaysInSecond });
+        res.cookie("authToken", authToken, { maxAge: oneDaysInMlSecond });
         res.status(200).json({
           islogged: true,
           message: "Success",
