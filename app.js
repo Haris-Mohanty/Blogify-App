@@ -39,9 +39,8 @@ app.use((req, res, next) => {
     next();
   } else {
     res.status(401);
-    res.json({
-      message: "Permission Denied!",
-    });
+    //When token not verify redirect to homepage
+    res.redirect("/");
   }
 });
 app.use("/api/private/company", companyRoutes);
