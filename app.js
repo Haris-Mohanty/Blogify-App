@@ -31,7 +31,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRoutes);
 app.use("/api/signup", signupRouter);
 app.use("/api/login", loginRouter);
-app.use("/profile", profileRouter);
 
 //API security
 app.use((req, res, next) => {
@@ -47,6 +46,7 @@ app.use((req, res, next) => {
 });
 app.use("/api/private/company", companyRoutes);
 app.use("/api/private/user", userRouter);
+app.use("/profile", profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
