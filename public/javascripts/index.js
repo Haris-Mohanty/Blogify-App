@@ -1,4 +1,4 @@
-//******* REDIRECT USER IF ALREADY LOGGED *******/
+//******* REDIRECT USER TO PROFILE PAGE IF ALREADY LOGGED *******/
 if (document.cookie.indexOf("authToken") != -1) {
   window.location = "/profile";
 }

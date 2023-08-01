@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
           sevenDaysInSecond
         );
         //Set Cookie
-        res.cookie("authToken", authToken);
+        res.cookie("authToken", authToken, { maxAge: sevenDaysInSecond });
         res.status(200).json({
           islogged: true,
           message: "Success",
