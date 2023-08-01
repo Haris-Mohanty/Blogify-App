@@ -12,4 +12,9 @@ route.get("/:query", (req, res) => {
   userController.getUserPassword(req, res);
 });
 
+//Update token
+route.put("/:id", (req, res) => {
+  userController.createLog(req, res);
+});
+
 module.exports = route;
