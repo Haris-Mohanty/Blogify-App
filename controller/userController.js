@@ -55,7 +55,12 @@ const getUserPassword = async (req, res) => {
   }
 };
 
+const createLog = async (req, res) => {
+  
+};
+
 module.exports = {
   createUser: createUser,
   getUserPassword: getUserPassword,
+  createLog: createLog,
 };
