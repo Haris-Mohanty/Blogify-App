@@ -98,10 +98,17 @@ $(document).ready(() => {
           setTimeout(() => {
             resetValidator(field);
           }, 3000);
+        } else if (error.status == 406) {
+          const field = ".password";
+          $(".password").addClass("border border-danger");
+          $(".password-error").html(error.responseJSON.message);
+          setTimeout(() => {
+            resetValidator(field);
+          }, 6000);
         } else {
           FileSystemWritableFileStream(
             error.status,
-            "internal Server Error1",
+            "internal Server Error!",
             "error"
           );
         }
