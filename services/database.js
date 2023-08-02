@@ -21,6 +21,8 @@ const getRecordByQuery = async (query, schema) => {
   return dataRes;
 };
 
+
+
 module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,

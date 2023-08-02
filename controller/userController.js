@@ -69,6 +69,10 @@ const createLog = async (req, res) => {
       islogged: true,
       updatedAt: Date.now(),
     };
+    const userRes = await dataBase.updateByQuery(query, "userSchema", data);
+    res.status(201).json({
+      message: "Token Updated Successfully!",
+    });
   } else {
     res.status(401).json({
       message: "Permission Denied!",

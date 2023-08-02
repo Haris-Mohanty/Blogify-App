@@ -42,10 +42,10 @@ router.post("/", async (req, res) => {
       //*****  REDIRECT TO PROFILE PAGE ******/
       if (islogged) {
         //Generate token
-        const oneDaysInMlSecond = 86400000;
+        const oneDaysInSecond = 86400;
         const authToken = await tokenService.createCustomToken(
           query,
-          oneDaysInMlSecond
+          oneDaysInSecond
         );
 
         //Store Token In Database
@@ -56,7 +56,7 @@ router.post("/", async (req, res) => {
         });
 
         //Set Cookie
-        res.cookie("authToken", authToken, { maxAge: oneDaysInMlSecond });
+        res.cookie("authToken", authToken, { maxAge: oneDaysInSecond * 1000 }); //Cokkie stores data in milisecond(so 1000 multiply)
         res.status(200).json({
           islogged: true,
           message: "Success",
