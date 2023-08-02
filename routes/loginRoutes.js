@@ -33,6 +33,9 @@ router.post("/", async (req, res) => {
     });
     //Get user password
     if (userRes.isCompanyExists) {
+      //Allow Single Device Login
+      if(userRes){}
+
       const realPassword = userRes.data[0].password;
       const islogged = await bcryptService.dcrypt(
         realPassword,
