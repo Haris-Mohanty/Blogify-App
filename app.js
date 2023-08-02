@@ -45,9 +45,14 @@ app.use((req, res, next) => {
     res.redirect("/");
   }
 });
+
+const authLogger = (req,res,next) => {
+  
+};
+
 app.use("/api/private/company", companyRoutes);
 app.use("/api/private/user", userRouter);
-app.use("/profile", profileRouter);
+app.use("/profile", authLogger(), profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
