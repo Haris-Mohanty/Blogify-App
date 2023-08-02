@@ -66,7 +66,8 @@ const createLog = async (req, res) => {
     const data = {
       token: req.body.token,
       expiresIn: 86400, //1 days in sec
-      islogged:true
+      islogged: true,
+      updatedAt: Date.now(),
     };
   } else {
     res.status(401).json({
