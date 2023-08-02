@@ -49,9 +49,11 @@ router.post("/", async (req, res) => {
         );
 
         //Store Token In Database
-        httpService.putRequest({
-          
-        })
+        const dbToken = await httpService.putRequest({
+          endPoint: req.get("origin"),
+          api: "/api/private/user",
+          data: authToken,
+        });
 
         //Set Cookie
         res.cookie("authToken", authToken, { maxAge: oneDaysInMlSecond });
