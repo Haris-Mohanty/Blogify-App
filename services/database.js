@@ -21,7 +21,11 @@ const getRecordByQuery = async (query, schema) => {
   return dataRes;
 };
 
-const updateByQuery = async () => {};
+const updateByQuery = async (query, schema, data) => {
+  const currentSchema = schemaList[schema];
+  const dataRes = await currentSchema.updateOne(query, data);
+  return dataRes;
+};
 
 module.exports = {
   createRecord: createRecord,
