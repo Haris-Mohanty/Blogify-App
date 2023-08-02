@@ -46,8 +46,8 @@ app.use((req, res, next) => {
   }
 });
 
-const authLogger = (req,res,next) => {
-  
+const authLogger = () => {
+  return(req,res,next)
 };
 
 app.use("/api/private/company", companyRoutes);
