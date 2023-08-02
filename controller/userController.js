@@ -58,7 +58,16 @@ const getUserPassword = async (req, res) => {
 const createLog = async (req, res) => {
   const token = await tokenService.verifyToken(req);
   if (token.isVerified) {
-    console.log("Accepted");
+    //Data macth
+    const query = {
+      uid: token.data.uid,
+    };
+    //Data upadte
+    const data = {
+      token: req.body.token,
+      expiresIn: 86400, //1 days in sec
+      islogged:true
+    };
   } else {
     res.status(401).json({
       message: "Permission Denied!",
