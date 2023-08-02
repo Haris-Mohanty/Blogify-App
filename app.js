@@ -16,6 +16,7 @@ const companyRoutes = require("./routes/companyRoutes");
 const userRouter = require("./routes/userRoutes");
 const tokenService = require("./services/tokenService");
 const profileRouter = require("./routes/profileRoutes");
+const authController = require("./controller/authController");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -46,8 +47,17 @@ app.use((req, res, next) => {
   }
 });
 
+//Check islogged value in database
 const authLogger = () => {
-  return(req,res,next)
+  return async (req, res, next) => {
+    const islogged = await authController.checkUserLogged();
+    if (islogged) {
+      next();
+    } else {
+      res.clearCookie("authToken");
+      res.redirect("/");
+    }
+  };
 };
 
 app.use("/api/private/company", companyRoutes);
