@@ -16,7 +16,12 @@ const getRequest = async (req) => {
   return response.body;
 };
 
+const putRequest = async(req)=>{
+  co
+}
+
 module.exports = {
   postRequest: postRequest,
   getRequest: getRequest,
+  putRequest:putRequest
 };

@@ -47,6 +47,9 @@ router.post("/", async (req, res) => {
           query,
           oneDaysInMlSecond
         );
+
+        //Store Token In Database
+
         //Set Cookie
         res.cookie("authToken", authToken, { maxAge: oneDaysInMlSecond });
         res.status(200).json({
