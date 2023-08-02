@@ -10,10 +10,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  token:,
-  expiresIn
-  islogged
-  updatedAt
+  token: String,
+  expiresIn: Number,
+  islogged: Boolean,
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
