@@ -9,7 +9,11 @@ const checkUserLogged = async (req) => {
     };
 
     const userData = await dataBase.getRecordByQuery(query, "userSchema");
-    console.log(userData);
+    if (userData.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
