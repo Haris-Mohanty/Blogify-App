@@ -4,6 +4,12 @@ const createUser = async (req, res) => {
   const token = await tokenService.verifyToken(req);
   if (token.isVerified) {
     try {
+      //When user signup, redirect to profile page
+      const uidJson = {
+        uid: token.data,
+      };
+
+      //user respone
       const userRes = await dataBase.createRecord(token.data, "userSchema");
       res.status(200);
       res.json({
