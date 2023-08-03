@@ -9,7 +9,7 @@ const refreshToken = async (uid, req) => {
     endPoint: endPoint,
     originalUrl: req.originalUrl,
   };
-  
+
   const expiresIn = 86400;
   const newToken = await tokenService.createCustomToken(option, expiresIn);
   const updateToken = {
@@ -32,7 +32,7 @@ const checkUserLogged = async (req, res) => {
     const userData = await dataBase.getRecordByQuery(query, "userSchema");
     if (userData.length > 0) {
       const newToken = await refreshToken(tokenData.data, req);
-      res.cookie("authToken", newToken);
+      res.cookie("authToken", newToken, { maxAge: 86400 * 1000 });
       return true;
     } else {
       return false;

@@ -6,13 +6,26 @@ const createUser = async (req, res) => {
     try {
       //When user signup, redirect to profile page
       const uidJson = {
-        uid: token.data,
+        uid: token.data.uid,
       };
+      const endPoint = req.get("origin") || "http://" + req.get("host");
+      const option = {
+        body: uidJson,
+        endPoint: endPoint,
+        originalUrl: req.originalUrl,
+      };
+      console.log(option);
+      const expiresIn = 86400;
+      const newToken = await tokenService.createCustomToken(option, expiresIn);
+      token.data["token"] = newToken;
+      token.data["expiresIn"] = expiresIn;
+      token.data["islogged"] = true;
 
       //user respone
       const userRes = await dataBase.createRecord(token.data, "userSchema");
       res.status(200);
       res.json({
+        token: newToken,
         isUserCreated: true,
         message: "User Created Successfully!",
       });
