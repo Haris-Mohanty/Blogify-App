@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 //Check islogged value in database
 const authLogger = () => {
   return async (req, res, next) => {
-    const islogged = await authController.checkUserLogged(req);
+    const islogged = await authController.checkUserLogged(req,res);
     if (islogged) {
       next();
     } else {

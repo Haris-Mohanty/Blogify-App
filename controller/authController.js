@@ -20,7 +20,7 @@ const refreshToken = async (uid, req) => {
   return newToken;
 };
 
-const checkUserLogged = async (req) => {
+const checkUserLogged = async (req, res) => {
   const tokenData = tokenService.verifyToken(req);
   if (tokenData.isVerified) {
     const query = {
@@ -30,7 +30,8 @@ const checkUserLogged = async (req) => {
 
     const userData = await dataBase.getRecordByQuery(query, "userSchema");
     if (userData.length > 0) {
-      refreshToken(tokenData.data, req);
+      const newToken = await refreshToken(tokenData.data, req);
+      res.cookie("authToken", newToken);
       return true;
     } else {
       return false;
