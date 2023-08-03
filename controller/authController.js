@@ -11,7 +11,9 @@ const refreshToken = async (uid, req) => {
   };
   const expiresIn = 86400;
   const newToken = await tokenService.createCustomToken(option, expiresIn);
-  
+  const updateToken ={
+    token:newToken
+  }
 };
 
 const checkUserLogged = async (req) => {
