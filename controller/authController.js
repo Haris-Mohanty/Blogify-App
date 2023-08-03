@@ -9,6 +9,7 @@ const refreshToken = async (uid, req) => {
     endPoint: endPoint,
     originalUrl: req.originalUrl,
   };
+  
   const expiresIn = 86400;
   const newToken = await tokenService.createCustomToken(option, expiresIn);
   const updateToken = {
