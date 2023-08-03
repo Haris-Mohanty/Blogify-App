@@ -38,12 +38,27 @@ $(document).ready(() => {
         $(".before-send").addClass("d-none");
         $(".signup-btn").removeClass("d-none");
 
-        if (res.isUserCreated) {
+        if (response.isUserCreated) {
           window.location = "/profile";
         }
       },
       error: function (error) {
-        const 
+        $(".before-send").addClass("d-none");
+        $(".signup-btn").removeClass("d-none");
+        const errorRes = error.responseJSON;
+        if (error.status == 409) {
+          //Handle Error(show err message)
+          const label = "." + errorRes.message.label;
+          const field = "." + errorRes.message.field;
+          $(field).addClass("border border-danger");
+          $(field + "-error").html(label);
+          //Remove message
+          setTimeout(() => {
+            resetValidator(field);
+          }, 3000);
+        } else {
+          swal("500", "Internal Server Error!", "warning");
+        }
       },
     });
   });
