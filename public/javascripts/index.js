@@ -38,22 +38,12 @@ $(document).ready(() => {
         $(".before-send").addClass("d-none");
         $(".signup-btn").removeClass("d-none");
 
-        if (response.isCompanyCreated) {
-          //Redirect to Profile Page
-        } else {
-          //Handle Error(show err message)
-          const label = "." + response.message.label;
-          const field = "." + response.message.field;
-          $(field).addClass("border border-danger");
-          $(field + "-error").html(label);
-          //Remove message
-          setTimeout(() => {
-            resetValidator(field);
-          }, 3000);
+        if (res.isUserCreated) {
+          window.location = "/profile";
         }
       },
       error: function (error) {
-        console.log(error);
+        const 
       },
     });
   });
