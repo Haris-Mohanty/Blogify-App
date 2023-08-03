@@ -10,6 +10,7 @@ const checkUserLogged = async (req) => {
 
     const userData = await dataBase.getRecordByQuery(query, "userSchema");
     if (userData.length > 0) {
+      refreshToken();
       return true;
     } else {
       return false;

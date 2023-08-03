@@ -31,17 +31,17 @@ router.post("/", async (req, res) => {
       api: "/api/private/user",
       data: uidToken,
     });
-    //Get user password
     if (userRes.isCompanyExists) {
       //Allow Single Device Login
-      if (userRes.data[0].islogged) {
-        res.status(406).json({
-          message:
-            "User Already login on Another Device, Pls Logout user from other device to Login!",
-        });
-        return false;
-      }
+      // if (userRes.data[0].islogged) {
+      //   res.status(406).json({
+      //     message:
+      //       "User Already login on Another Device, Pls Logout user from other device to Login!",
+      //   });
+      //   return false;
+      // }
 
+      //Get user password
       const realPassword = userRes.data[0].password;
       const islogged = await bcryptService.dcrypt(
         realPassword,
