@@ -2,8 +2,16 @@ const tokenService = require("../services/tokenService");
 const dataBase = require("../services/database");
 
 //Refresh token
-const refreshToken = (uid,req) => {
-  console.log(uid)
+const refreshToken = async (uid, req) => {
+  const endPoint = req.get("origin") || "http://" + req.get("host");
+  const option = {
+    body: uid,
+    endPoint: endPoint,
+    originalUrl: req.originalUrl,
+  };
+  const expiresIn = 86400;
+  const newToken = await tokenService.createCustomToken(option, expiresIn);
+  
 };
 
 const checkUserLogged = async (req) => {
