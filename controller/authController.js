@@ -1,5 +1,11 @@
 const tokenService = require("../services/tokenService");
 const dataBase = require("../services/database");
+
+//Refresh token
+const refreshToken = (uid,req) => {
+  console.log(uid)
+};
+
 const checkUserLogged = async (req) => {
   const tokenData = tokenService.verifyToken(req);
   if (tokenData.isVerified) {
@@ -10,7 +16,7 @@ const checkUserLogged = async (req) => {
 
     const userData = await dataBase.getRecordByQuery(query, "userSchema");
     if (userData.length > 0) {
-      refreshToken();
+      refreshToken(tokenData.data, req);
       return true;
     } else {
       return false;
