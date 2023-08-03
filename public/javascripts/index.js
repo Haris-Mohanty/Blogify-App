@@ -39,7 +39,11 @@ $(document).ready(() => {
         $(".signup-btn").removeClass("d-none");
 
         if (response.isUserCreated) {
-          window.location = "/profile";
+          $(".signup-btn").addClass("bg-success disabled");
+          $(".signup-btn").html("Redirecting to Profile page...");
+          setTimeout(() => {
+            window.location = "/profile";
+          }, 4000);
         }
       },
       error: function (error) {
