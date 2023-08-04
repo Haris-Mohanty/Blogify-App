@@ -22,7 +22,7 @@ const refreshToken = async (uid, req) => {
 };
 
 const checkUserLogged = async (req, res) => {
-  const tokenData = tokenService.verifyToken(req);
+  const tokenData = await tokenService.verifyToken(req);
   if (tokenData.isVerified) {
     const query = {
       token: req.cookies.authToken,
@@ -43,7 +43,7 @@ const checkUserLogged = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  const tokenData = tokenService.verifyToken(req);
+  const tokenData = await tokenService.verifyToken(req);
   if (tokenData.isVerified) {
     //get token
     const query = {
@@ -54,7 +54,12 @@ const logout = async (req, res) => {
       islogged: false,
       updatedAt: Date.now(),
     };
-    dataBase.updateByQuery(query, "userSchema", updateData);
+    const userRes = await dataBase.updateByQuery(
+      query,
+      "userSchema",
+      updateData
+    );
+    console.log(userRes);
   } else {
     res.status(401).json({
       message: "Error in Logout API!",
