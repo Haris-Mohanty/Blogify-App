@@ -50,7 +50,11 @@ const logout = async (req, res) => {
       token: req.cookies.authToken,
     };
     //Update in database
-    dataBase.updateByQuery();
+    const updateData = {
+      islogged: false,
+      updatedAt: Date.now(),
+    };
+    dataBase.updateByQuery(query, "userSchema", updateData);
   } else {
     res.status(401).json({
       message: "Error in Logout API!",
