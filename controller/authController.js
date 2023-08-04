@@ -45,7 +45,12 @@ const checkUserLogged = async (req, res) => {
 const logout = async (req, res) => {
   const tokenData = tokenService.verifyToken(req);
   if (tokenData.isVerified) {
-    dataBase.updateByQuery()
+    //get token
+    const query = {
+      token: req.cookies.authToken,
+    };
+    //Update in database
+    dataBase.updateByQuery();
   } else {
     res.status(401).json({
       message: "Error in Logout API!",
