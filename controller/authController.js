@@ -62,7 +62,9 @@ const logout = async (req, res) => {
     //cookie clear and redirect to homepage
     if (userRes.modifiedCount) {
       await res.clearCookie("authToken");
-      
+      res.redirect("/");
+    } else {
+      res.redirect("/profile");
     }
   } else {
     res.status(401).json({
