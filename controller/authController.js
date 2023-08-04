@@ -42,6 +42,9 @@ const checkUserLogged = async (req, res) => {
   }
 };
 
+const logout = () => {};
+
 module.exports = {
   checkUserLogged: checkUserLogged,
+  logout: logout,
 };
