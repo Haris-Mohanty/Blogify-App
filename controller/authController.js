@@ -59,7 +59,11 @@ const logout = async (req, res) => {
       "userSchema",
       updateData
     );
-    console.log(userRes);
+    //cookie clear and redirect to homepage
+    if (userRes.modifiedCount) {
+      await res.clearCookie("authToken");
+      
+    }
   } else {
     res.status(401).json({
       message: "Error in Logout API!",
