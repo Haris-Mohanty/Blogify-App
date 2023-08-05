@@ -14,5 +14,7 @@ html(lang="en")
                     i.fa.fa-align-left
                 ul.navbar-nav.w-100.justify-content-end
                     each menu of toolbar
-                    li.nav-item    
-                        a.nav-link.fw-bold(href="/logout") Logout
+                        li.nav-item    
+                            button.btn
+                                a.nav-link.fw-bold(href=menu.link) 
+                                    i(class=menu.icon)
