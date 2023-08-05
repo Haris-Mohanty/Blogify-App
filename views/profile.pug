@@ -6,12 +6,13 @@ html(lang="en")
     script(src="javascripts/profile.js")
         title Profile Page
     body
-        - const toolbar = [{}]
+        - const toolbar = [{icon:"fa fa-user-secret", link:"/students"},{icon:"fas fa-users", link:"/teams"},{icon:"fa fa-sign-out-alt", link:"/logout"}]
         div.sidenav.sidenav-open
         div.section.section-open
             nav.navbar.navbar-expand-sm.px-3.py-3.bg-white.shadow-sm
                 button.btn.toggler
                     i.fa.fa-align-left
                 ul.navbar-nav.w-100.justify-content-end
+                    each menu of toolbar
                     li.nav-item    
                         a.nav-link.fw-bold(href="/logout") Logout
