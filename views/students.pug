@@ -1,13 +1,16 @@
 include profile
     block loadStyle
-        link(rel="stylesheet", href="stylesheets/students.css")
+        link(rel="stylesheet" href="stylesheets/students.css")
     block loadScript
         script(src="javascripts/students.js") 
     block content
         p.medium-font Students...
-        div.card-container-fuild
+        div.card.container-fuild
             div.card-body.border-none
                 div.row
                     div.col-md-3
+                        input(type="text" class="input remove-focus form-control" placeholder="Search")
+                    div.col-md-6
                     div.col-md-3
-                    div.col-md-3
+                        button.btn.btn-light.mx-4 Export
+                        button.btn.btn-primary Add Students
