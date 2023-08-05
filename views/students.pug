@@ -13,5 +13,15 @@ include profile
                     div.col-md-6
                     div.col-md-3
                         button.btn.btn-light.mx-4 Export
-                        button.btn.btn-primary Add Students
-        div.modal
+                        button.btn.btn-primary(data-bs-toggle="modal" data-bs-target="#student-modal") Add Students
+        div.modal.animate__animated.animate__slideInDown.animate-faster#student-modal
+            div.modal-dialog.modal-dialog-centered.modal-lg
+                div.modal-content
+                    div.modal-body
+                        h4.medium-font Students
+                        form 
+                            div.row
+                                div.col-md-6
+                                    div.form-group
+                                        input(type="text" name="" placeholder="Student Name")
+                                div.col-md-6
