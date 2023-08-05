@@ -3,7 +3,9 @@ html(lang="en")
     head
     include bootstrap
     link(rel="stylesheet" href="stylesheets/profile.css")
+    block loadStyle
     script(src="javascripts/profile.js")
+    block loadScript
         title Profile Page
     body
         - const toolbar = [{icon:"fa fa-user-secret", link:"/students"},{icon:"fas fa-users", link:"/teams"},{icon:"fa fa-sign-out-alt", link:"/logout"}]
@@ -18,5 +20,5 @@ html(lang="en")
                             button.btn.toolbar.mx-2
                                 a.nav-link(href=menu.link) 
                                     i(class=menu.icon)
-            div
+            div.mx-4.py-3
                 block content 
