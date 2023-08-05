@@ -18,6 +18,7 @@ const tokenService = require("./services/tokenService");
 const profileRouter = require("./routes/profileRoutes");
 const authController = require("./controller/authController");
 const logoutRoutes = require("./routes/logoutRoutes");
+const studentsRoutes = require("./routes/studentsRoutes");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -64,6 +65,7 @@ const authLogger = () => {
 app.use("/api/private/company", companyRoutes);
 app.use("/api/private/user", userRouter);
 app.use("/logout", logoutRoutes);
+app.use("/students", studentsRoutes);
 app.use("/profile", authLogger(), profileRouter);
 
 // catch 404 and forward to error handler
