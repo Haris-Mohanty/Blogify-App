@@ -23,5 +23,23 @@ include profile
                             div.row
                                 div.col-md-6
                                     div.form-group
-                                        input(type="text" name="" placeholder="Student Name")
+                                        input(type="text" name="studentName" placeholder="Student Name" class="form-control input remove-focus mb-3")
+                                    div.form-group
+                                        input(type="email" name="studentFather" placeholder="Father Name" class="form-control input remove-focus mb-3")
+                                    div.form-group
+                                        input(type="text" name="studentName" placeholder="Student Name" class="form-control input remove-focus mb-3")
+                                    div.form-group
+                                        input(type="date" name="studentDob" class="form-control input remove-focus mb-3")
+                                    div.form-group.d-flex.mb-3.mx-1
+                                        button.btn.btn-light(type="button") (+91)
+                                        input(type="number" name="studentMobile" placeholder="Student Mobile" class="form-control input remove-focus")
                                 div.col-md-6
+                                    div.form-group.mb-3
+                                        input(type="text" name="studentCountry" placeholder="Country" class="form-control input remove-focus")
+                                    div.form-group.mb-3
+                                        input(type="text" name="studentState" placeholder="State" class="form-control input remove-focus")
+                                    div.form-group.mb-3
+                                        input(type="number" name="studentPin" placeholder="Pincode" class="form-control input remove-focus")
+                                    div.form-group.mb-3
+                                        textarea(name="studentAddress" placeholder="Address" class="form-control input remove-focus")
+                                    button.btn.btn-primary.float-end(type="submit") Submit
