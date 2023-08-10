@@ -25,7 +25,16 @@ $(document).ready(() => {
 
 //******* ADD STUDENT *******/
 $(document).ready(() => {
-  $("#student-form").subm
+  $("#student-form").submit(async function (e) {
+    e.preventDefault();
+    const request = {
+      type: "POST",
+      url: "/students",
+      data: new FormData(this),
+    };
+    const response = await ajax(request);
+    console.log(response);
+  });
 });
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
@@ -49,6 +58,9 @@ const ajax = (request) => {
     $.ajax({
       type: request.type,
       url: request.url,
+      data: request.type == "GET" ? {} : request.data,
+      processData: request.type == "GET" ? true : false,
+      contentType: request.type == "GET" ? "application/json" : false,
       success: function (response) {
         resolve(response);
       },
