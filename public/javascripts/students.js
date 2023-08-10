@@ -4,7 +4,14 @@ $(document).ready(() => {
     let keyword = $(this).val().trim().toLowerCase();
     const loclaData = checkInLocalStorage("countryCode");
     if (loclaData.isExists) {
-      console.log(loclaData);
+      //Get country code from localstorage
+      const countries = loclaData.data;
+      for (let country of countries) {
+        if (country.name.toLowerCase().indexOf(keyword) != -1) {
+          const dialCode = country.dial_code;
+          $(".code").html(dialCode);
+        }
+      }
     } else {
       const request = {
         type: "GET",
