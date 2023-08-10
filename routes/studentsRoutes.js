@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  
+  studentController.create(req, res);
 });
 
 module.exports = router;
