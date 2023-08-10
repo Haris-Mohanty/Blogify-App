@@ -23,6 +23,11 @@ $(document).ready(() => {
   });
 });
 
+//******* ADD STUDENT *******/
+$(document).ready(() => {
+  $("#student-form").subm
+});
+
 //****** CHECK DATA IN LOCAL STORAGE *****/
 const checkInLocalStorage = (key) => {
   if (localStorage.getItem(key) != null) {
