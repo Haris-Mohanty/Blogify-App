@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 const companySchema = require("../model/companyModel");
 const userSchema = require("../model/userModel");
+const studentSchema = require("../model/studentsModel");
+
 const schemaList = {
   companySchema: companySchema,
   userSchema: userSchema,
+  studentSchema: studentSchema,
 };
 
 const url = "mongodb://127.0.0.1:27017/blogify";
