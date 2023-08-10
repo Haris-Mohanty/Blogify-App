@@ -9,7 +9,7 @@ const schemaList = {
   studentSchema: studentSchema,
 };
 
-const url = "mongodb://127.0.0.1:27017/blogify";
+const url = process.env.MONGO_URL;
 mongoose.connect(url);
 
 const createRecord = async (data, schema) => {
