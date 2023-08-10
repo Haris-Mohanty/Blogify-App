@@ -14,6 +14,14 @@ const studentSchema = new mongoose.Schema({
   studentState: String,
   studentPin: String,
   studentAddress: String,
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("student", studentSchema);
