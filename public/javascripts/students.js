@@ -27,10 +27,15 @@ $(document).ready(() => {
 $(document).ready(() => {
   $("#student-form").submit(async function (e) {
     e.preventDefault();
+    const token = getToken("authToken");
+
+    let formData = new FormData(this);
+    formData.append("token", token);
+
     const request = {
       type: "POST",
       url: "/students",
-      data: new FormData(this),
+      data: formData,
     };
     const response = await ajax(request);
     console.log(response);
@@ -69,4 +74,18 @@ const ajax = (request) => {
       },
     });
   });
+};
+
+//***** GET TOKEN FROM COOKIE *****/
+const getToken = (cookieName) => {
+  const allCookie = document.cookie;
+  let cookies = allCookie.split(";");
+  let cookieValue = "";
+  for (let cookie of cookies) {
+    let currentCookie = cookie.split("=");
+    if (currentCookie[0] == cookieName) {
+      cookieValue = currentCookie[1];
+    }
+  }
+  return cookieValue;
 };
