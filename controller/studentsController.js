@@ -1,6 +1,7 @@
 const tokenService = require("../services/tokenService");
 const dataBase = require("../services/database");
 
+//***** CREATE STUDENTS || ADD STUDENT DATA *******/
 const create = async (req, res) => {
   //Token Verify
   const tokenData = await tokenService.verifyToken(req);
@@ -27,6 +28,19 @@ const create = async (req, res) => {
   }
 };
 
+//****** FETCH STUDENT DETAILS  *******/
+const countStudent = async (req, res) => {
+  //Token Verify
+  const tokenData = await tokenService.verifyToken(req);
+  if (tokenData.isVerified) {
+  } else {
+    res.status(401).json({
+      message: "Unauthorized User!",
+    });
+  }
+};
+
 module.exports = {
   create: create,
+  countStudent: countStudent,
 };
