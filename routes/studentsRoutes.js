@@ -6,6 +6,10 @@ router.get("/", (req, res) => {
   res.render("students"); //pug file name
 });
 
+router.get("/count-all", (req, res) => {
+  
+});
+
 router.post("/", (req, res) => {
   studentsController.create(req, res);
 });
