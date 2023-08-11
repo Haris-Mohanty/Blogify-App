@@ -16,7 +16,7 @@ const create = async (req, res) => {
       });
     } catch (err) {
       res.status(409).json({
-        message: "Error in Create API!",
+        message: "Error in Create Student API!",
         error: err,
       });
     }

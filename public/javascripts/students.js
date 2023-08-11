@@ -37,8 +37,12 @@ $(document).ready(() => {
       url: "/students",
       data: formData,
     };
-    const response = await ajax(request);
-    console.log(response);
+    try {
+      const response = await ajax(request);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   });
 });
 
