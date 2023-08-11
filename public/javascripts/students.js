@@ -36,6 +36,9 @@ $(document).ready(() => {
       type: "POST",
       url: "/students",
       data: formData,
+      isLoader: true,
+      commonBtn: ".add-student-btn",
+      loaderBtn: ".student-loader",
     };
     try {
       const response = await ajax(request);
@@ -70,7 +73,17 @@ const ajax = (request) => {
       data: request.type == "GET" ? {} : request.data,
       processData: request.type == "GET" ? true : false,
       contentType: request.type == "GET" ? "application/json" : false,
+      beforeSend: () => {
+        if (request.isLoader) {
+          $(request.commonBtn).addClass("d-none");
+          $(request.loaderBtn).removeClass("d-none");
+        }
+      },
       success: function (response) {
+        if (request.isLoader) {
+          $(request.commonBtn).removeClass("d-none");
+          $(request.loaderBtn).addClass("d-none");
+        }
         resolve(response);
       },
       error: function (error) {
