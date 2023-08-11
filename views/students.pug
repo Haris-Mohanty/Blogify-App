@@ -4,6 +4,7 @@ include profile
     block loadScript
         script(src="javascripts/students.js") 
     block content
+        - const skeleton = ['a','b','c','d','e']
         p.medium-font Students...
         div.card.container-fuild
             div.card-body.border-none
@@ -27,14 +28,18 @@ include profile
                             th Students
                             th Students
                     tbody 
-                        tr 
-                            td(colspan="9")
-                                div.d-flex
-                                    div.mx-3.d-flex.justify-content-center.align-items-center
-                                        div.student-pic
-                                    div.d-flex.flex-column.w-100
-                                        div.student-title.mb-2
-                                        div.student-subtitle
+                        each data of skeleton
+                            tr
+                                td(colspan="9")
+                                    div.d-flex
+                                        div.mx-3.d-flex.justify-content-center.align-items-center
+                                            div.student-pic.skeleton
+                                                div.skeleton-loader
+                                        div.d-flex.flex-column.w-100
+                                            div.student-title.mb-2.skeleton
+                                                div.skeleton-loader
+                                            div.student-subtitle.skeleton
+                                                div.skeleton-loader
         div.modal.animate__animated.animate__slideInDown.animate-faster#student-modal
             div.modal-dialog.modal-dialog-centered.modal-lg
                 div.modal-content
