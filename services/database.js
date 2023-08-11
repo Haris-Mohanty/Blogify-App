@@ -30,6 +30,13 @@ const updateByQuery = async (query, schema, data) => {
   return dataRes;
 };
 
+//**** FETCH STUDENT DETAILS *****/
+const countData = async (schema) => {
+  const currentSchema = schemaList[schema];
+  const dataRes = await currentSchema.countDocuments();
+  return dataRes;
+};
+
 module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,

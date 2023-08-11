@@ -33,6 +33,10 @@ const countStudent = async (req, res) => {
   //Token Verify
   const tokenData = await tokenService.verifyToken(req);
   if (tokenData.isVerified) {
+    const dataRes = dataBase.countData("studentSchema");
+    res.status(200).json({
+      data: dataRes,
+    });
   } else {
     res.status(401).json({
       message: "Unauthorized User!",
