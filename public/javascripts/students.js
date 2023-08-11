@@ -44,7 +44,15 @@ $(document).ready(() => {
       const response = await ajax(request);
       console.log(response);
     } catch (error) {
-      console.log(error);
+      $(".student-email").addClass(
+        "animate__animated animate__shakeX border border-danger"
+      );
+      $(".student-email").click(function () {
+        $(this).removeClass(
+          "animate__animated animate__shakeX border border-danger"
+        );
+        $(this).val("");
+      });
     }
   });
 });
