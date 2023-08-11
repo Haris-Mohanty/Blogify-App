@@ -87,6 +87,10 @@ const ajax = (request) => {
         resolve(response);
       },
       error: function (error) {
+        if (request.isLoader) {
+          $(request.commonBtn).removeClass("d-none");
+          $(request.loaderBtn).addClass("d-none");
+        }
         reject(error);
       },
     });
