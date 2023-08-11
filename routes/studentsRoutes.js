@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/count-all", (req, res) => {
-  
+  studentsController.countStudent(req, res);
 });
 
 router.post("/", (req, res) => {
