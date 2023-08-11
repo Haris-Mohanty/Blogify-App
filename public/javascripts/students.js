@@ -42,7 +42,7 @@ $(document).ready(() => {
     };
     try {
       const response = await ajax(request);
-      console.log(response);
+      $("#student-modal").modal("hide");
     } catch (error) {
       $(".student-email").addClass(
         "animate__animated animate__shakeX border border-danger"
