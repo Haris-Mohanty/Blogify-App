@@ -35,6 +35,14 @@
   letter-spacing: 0.5px;
 }
 
+.btn-design {
+  border: none;
+  padding: 9px 18px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+
 .btn-light {
   background-color: #f5f5f5 !important;
   border: none;
