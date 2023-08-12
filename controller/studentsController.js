@@ -50,8 +50,7 @@ const paginate = async (req, res) => {
   let to = Number(req.params.to);
   const dataRes = await dataBase.paginateData(from, to, "studentSchema");
   res.status(200).json({
-    from: from,
-    to: to,
+    data: dataRes,
   });
 };
 

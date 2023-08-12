@@ -37,9 +37,13 @@ const countData = async (schema) => {
   return dataRes;
 };
 
+//****** PAGINATE (SHOW STUDENT DETAILS) ********/
+const paginateData = async () => {};
+
 module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,
   updateByQuery: updateByQuery,
   countData: countData,
+  paginateData:paginateData
 };
