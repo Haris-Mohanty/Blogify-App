@@ -44,6 +44,9 @@ const countStudent = async (req, res) => {
   }
 };
 
+//****** PAGINATE (SHOW STUDENT DETAILS) ********/
+const paginate = () => {};
+
 module.exports = {
   create: create,
   countStudent: countStudent,
