@@ -10,6 +10,10 @@ router.get("/count-all", (req, res) => {
   studentsController.countStudent(req, res);
 });
 
+router.get("/:from/:to", (req, res) => {
+  
+});
+
 router.post("/", (req, res) => {
   studentsController.create(req, res);
 });

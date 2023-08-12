@@ -41,4 +41,5 @@ module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,
   updateByQuery: updateByQuery,
+  countData: countData,
 };
