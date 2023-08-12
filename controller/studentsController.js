@@ -46,7 +46,12 @@ const countStudent = async (req, res) => {
 
 //****** PAGINATE (SHOW STUDENT DETAILS) ********/
 const paginate = async (req, res) => {
-  
+  let from = req.params.from;
+  let to = req.params.to;
+  res.status(200).json({
+    from: from,
+    to: to,
+  });
 };
 
 module.exports = {
