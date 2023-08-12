@@ -46,8 +46,9 @@ const countStudent = async (req, res) => {
 
 //****** PAGINATE (SHOW STUDENT DETAILS) ********/
 const paginate = async (req, res) => {
-  let from = req.params.from;
-  let to = req.params.to;
+  let from = Number(req.params.from);
+  let to = Number(req.params.to);
+  const dataRes = await dataBase.paginateData(from, to, "studentSchema");
   res.status(200).json({
     from: from,
     to: to,
