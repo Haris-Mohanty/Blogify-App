@@ -11,7 +11,7 @@ router.get("/count-all", (req, res) => {
 });
 
 router.get("/:from/:to", (req, res) => {
-  
+  studentsController.paginate(req, res);
 });
 
 router.post("/", (req, res) => {
