@@ -70,7 +70,28 @@ const showStudents = async (from, to) => {
     url: `students/${from}/${to}`,
   };
   const response = await ajax(request);
-  console.log(response);
+  if (response.data.length > 0) {
+    for (let student of response.data) {
+      let tr = `
+        <tr>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+          <td>${student.studentName}</td>
+        </tr>
+      `;
+    }
+  } else {
+    swal("Not Found!", "Not found any Students!", "warning");
+  }
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
