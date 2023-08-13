@@ -58,7 +58,18 @@ $(document).ready(() => {
 });
 
 //****** FECTH || SHOW STUDENTS DETAILS *******/
-$(document).ready(() => {});
+$(document).ready(() => {
+  let from = 0;
+  let to = 5;
+  showStudents(from, to);
+});
+//show students function def
+const showStudents = (from, to) => {
+  const request = {
+    type:"GET"
+  };
+  ajax(request);
+};
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
 const checkInLocalStorage = (key) => {
