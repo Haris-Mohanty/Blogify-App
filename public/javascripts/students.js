@@ -64,12 +64,13 @@ $(document).ready(() => {
   showStudents(from, to);
 });
 //show students function def
-const showStudents = (from, to) => {
+const showStudents = async (from, to) => {
   const request = {
     type: "GET",
     url: `students/${from}/${to}`,
   };
-  ajax(request);
+  const response = await ajax(request);
+  console.log(response);
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
