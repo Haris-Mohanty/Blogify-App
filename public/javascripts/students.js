@@ -57,6 +57,9 @@ $(document).ready(() => {
   });
 });
 
+//****** FECTH || SHOW STUDENTS DETAILS *******/
+$(document).ready(() => {});
+
 //****** CHECK DATA IN LOCAL STORAGE *****/
 const checkInLocalStorage = (key) => {
   if (localStorage.getItem(key) != null) {
