@@ -136,7 +136,7 @@ button:focus {
   position: absolute;
   left: 100%;
   top: 0;
-  animation: loader linear 3s infinite;
+  animation: loader linear 2s infinite;
 }
 @keyframes loader {
   from {
