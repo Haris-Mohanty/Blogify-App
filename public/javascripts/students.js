@@ -74,20 +74,21 @@ const showStudents = async (from, to) => {
     for (let student of response.data) {
       let tr = `
         <tr>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
-          <td>${student.studentName}</td>
+          <td class='text-nowrap'>${student.studentName}</td>
+          <td class='text-nowrap'>${student.studentEmail}</td>
+          <td class='text-nowrap'>${student.studentMobile}</td>
+          <td class='text-nowrap'>${student.studentFather}</td>
+          <td class='text-nowrap'>${student.studentDob}</td>
+          <td class='text-nowrap'>${student.studentCountry}</td>
+          <td class='text-nowrap'>${student.studentState}</td>
+          <td class='text-nowrap'>${student.studentPin}</td>
+          <td class='text-nowrap'>${student.studentAddress}</td>
+          <td class='text-nowrap'></td>
+          <td class='text-nowrap'>${student.updatedAt}</td>
+          <td class='text-nowrap'></td>
         </tr>
       `;
+      $(".student-list").append(tr);
     }
   } else {
     swal("Not Found!", "Not found any Students!", "warning");
