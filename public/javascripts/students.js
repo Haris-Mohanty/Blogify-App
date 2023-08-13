@@ -66,7 +66,8 @@ $(document).ready(() => {
 //show students function def
 const showStudents = (from, to) => {
   const request = {
-    type:"GET"
+    type: "GET",
+    url: `students/${from}/${to}`,
   };
   ajax(request);
 };
