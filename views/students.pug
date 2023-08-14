@@ -15,31 +15,32 @@ include profile
                     div.col-md-3
                         button.btn.btn-light.mx-4 Export
                         button.btn.btn-primary(data-bs-toggle="modal" data-bs-target="#student-modal") Add Students
-                table.table.my-4
-                    thead
-                        tr 
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                            th Students
-                    tbody.student-list
-                        each data of skeleton
-                            tr
-                                td(colspan="9").py-3
-                                    div.d-flex
-                                        div.mx-3.d-flex.justify-content-center.align-items-center
-                                            div.student-pic.skeleton
-                                                div.skeleton-loader
-                                        div.d-flex.flex-column.w-100
-                                            div.student-title.mb-2.skeleton
-                                                div.skeleton-loader
-                                            div.student-subtitle.skeleton
-                                                div.skeleton-loader
+                div.table-responsive
+                    table.table.my-4
+                        thead
+                            tr 
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                                th Students
+                        tbody.student-list
+                            each data of skeleton
+                                tr
+                                    td(colspan="9").py-3
+                                        div.d-flex
+                                            div.mx-3.d-flex.justify-content-center.align-items-center
+                                                div.student-pic.skeleton
+                                                    div.skeleton-loader
+                                            div.d-flex.flex-column.w-100
+                                                div.student-title.mb-2.skeleton
+                                                    div.skeleton-loader
+                                                div.student-subtitle.skeleton
+                                                    div.skeleton-loader
         div.modal.animate__animated.animate__slideInDown.animate-faster#student-modal
             div.modal-dialog.modal-dialog-centered.modal-lg
                 div.modal-content
