@@ -126,13 +126,18 @@ const studentAction = () => {
   $(document).ready(() => {
     //Delete
     $(".delete-student").each(function () {
-      $(this).click(function () {
+      $(this).click(async function () {
         const id = $(this).data("id");
+        const token = getToken("authToken");
         const request = {
           type: "DELETE",
           url: "/students/" + id,
+          data: {
+            token: token,
+          },
         };
-        ajax(request);
+        const res = await ajax(request);
+        console.log(res);
       });
     });
   });
@@ -156,12 +161,9 @@ const checkInLocalStorage = (key) => {
 //**** AJAX REQUEST ******/
 const ajax = (request) => {
   return new Promise((resolve, reject) => {
-    $.ajax({
+    let options = {
       type: request.type,
       url: request.url,
-      data: request.type == "GET" ? {} : request.data,
-      processData: request.type == "GET" ? true : false,
-      contentType: request.type == "GET" ? "application/json" : false,
       beforeSend: () => {
         if (request.isLoader) {
           $(request.commonBtn).addClass("d-none");
@@ -182,7 +184,19 @@ const ajax = (request) => {
         }
         reject(error);
       },
-    });
+    };
+
+    if (request.type == "POST" || request.type == "PUT") {
+      options["data"] = request.data;
+      options["processData"] = false;
+      options["contentType"] = false;
+    }
+
+    if (request.type == "DELETE") {
+      options["data"] = request.data;
+    }
+
+    $.ajax(options);
   });
 };
 
