@@ -231,6 +231,8 @@ button:focus {
   }
 }
 
+/******* MEDIA QUERY ******/
+
 @media (max-width: 768px) {
   .sidenav-open {
     width: 0;

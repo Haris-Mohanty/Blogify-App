@@ -74,7 +74,12 @@ const showStudents = async (from, to) => {
     for (let student of response.data) {
       let tr = `
         <tr>
-          <td class='text-nowrap'>${student.studentName}</td>
+          <td class='text-nowrap'>
+            <div>
+              <i class="fa fa-user-circle" style="font-size:45px;"></i>
+              <div></div>
+            </div>
+          </td>
           <td class='text-nowrap'>${student.studentEmail}</td>
           <td class='text-nowrap'>${student.studentMobile}</td>
           <td class='text-nowrap'>${student.studentFather}</td>
