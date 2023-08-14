@@ -76,10 +76,10 @@ const showStudents = async (from, to) => {
   if (response.data.length > 0) {
     for (let student of response.data) {
       let tr = `
-        <tr>
+        <tr class='animate__animated animate__fadeIn animate__slower'>
           <td class='text-nowrap'>
             <div class='d-flex align-items-center'>
-              <i class="fa fa-user-circle" style="font-size:45px;"></i>
+              <i class="fa fa-user-circle mx-2" style="font-size:45px;"></i>
               <div>
                 <p class='p-0 m-0 text-capitalize fw-bold'>${student.studentName}</p>
                 <small class='text-uppercase'>${student.studentCountry}</small>
@@ -100,13 +100,13 @@ const showStudents = async (from, to) => {
           <td class='text-nowrap'>${student.updatedAt}</td>
           <td class='text-nowrap'>
             <div class='d-flex'>
-             <button class='btn icon-btn-primary'>
+             <button data-id='${student._id}' class='btn edit-student icon-btn-primary'>
                 <i class='fa fa-edit'></i>
              </button>
-             <button class='btn icon-btn-danger mx-2'>
+             <button data-id='${student._id}' class='btn delete-student icon-btn-danger mx-2'>
                 <i class='fa fa-trash'></i>
              </button>
-             <button class='btn icon-btn-info'>
+             <button data-id='${student._id}' class='btn share-student icon-btn-info'>
                 <i class='fa fa-share'></i>
              </button>
             </div>
@@ -114,10 +114,20 @@ const showStudents = async (from, to) => {
         </tr>
       `;
       $(".student-list").append(tr);
+      studentAction();
     }
   } else {
     swal("Not Found!", "Not found any Students!", "warning");
   }
+};
+
+//****** ACTION (DELETE, EDIT & SHARE) *******/
+const studentAction = () => {
+  $(document).ready(() => {
+    //Delete
+    $(".delete-student").
+
+  });
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
