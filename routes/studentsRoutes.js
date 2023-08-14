@@ -10,12 +10,17 @@ router.get("/count-all", (req, res) => {
   studentsController.countStudent(req, res);
 });
 
+//***** PAGINATE *****/
 router.get("/:from/:to", (req, res) => {
   studentsController.paginate(req, res);
 });
 
+//******* CREATE STUDENT *****/
 router.post("/", (req, res) => {
   studentsController.create(req, res);
 });
+
+//**** DELETE STUDENT *****/
+router.post("/", (req, res) => {});
 
 module.exports = router;
