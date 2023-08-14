@@ -96,7 +96,11 @@ const showStudents = async (from, to) => {
           </td>
           <td class='text-nowrap'>${student.updatedAt}</td>
           <td class='text-nowrap'>
-          
+            <div>
+             <button class='btn'></button>
+             <button class='btn'></button>
+             <button class='btn'></button>
+            </div>
           </td>
         </tr>
       `;
