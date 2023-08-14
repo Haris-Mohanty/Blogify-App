@@ -125,7 +125,7 @@ const showStudents = async (from, to) => {
 const studentAction = () => {
   $(document).ready(() => {
     //Delete
-    $(".delete-student").
+    $(".delete-student").each()
 
   });
 };
