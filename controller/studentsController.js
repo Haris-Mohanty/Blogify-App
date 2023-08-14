@@ -68,7 +68,10 @@ const deleteStudents = async (req, res) => {
   const tokenData = await tokenService.verifyToken(req);
   if (tokenData.isVerified) {
     const id = req.params.id;
-    
+    const deleteRes = await dataBase.deleteById(id, "studentSchema");
+    res.status(200).json({
+      data: deleteRes,
+    });
   } else {
     res.status(401).json({
       message: "Error in Delete Student API!",

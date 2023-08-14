@@ -44,6 +44,8 @@ const paginateData = async (from, to, schema) => {
   return dataRes;
 };
 
+//*********** DELETE STUDENTS **********/
+
 module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,
