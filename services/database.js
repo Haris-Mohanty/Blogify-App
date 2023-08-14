@@ -45,6 +45,7 @@ const paginateData = async (from, to, schema) => {
 };
 
 //*********** DELETE STUDENTS **********/
+const deleteById = () => {};
 
 module.exports = {
   createRecord: createRecord,
@@ -52,4 +53,5 @@ module.exports = {
   updateByQuery: updateByQuery,
   countData: countData,
   paginateData: paginateData,
+  deleteById:deleteById
 };
