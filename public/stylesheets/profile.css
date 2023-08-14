@@ -1,15 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
 .medium-font {
   font-family: "Roboto", sans-serif;
   font-size: 19.5px;
   font-weight: 600;
   color: #181c32;
+}
+
+.small-font {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #323232;
 }
 
 .border-none {
@@ -19,7 +27,7 @@
 .input {
   background-color: #f5f5f5;
   border: none;
-  padding: 12px;
+  padding: 22px;
 }
 
 .remove-focus {
@@ -28,7 +36,7 @@
 }
 
 .btn-primary {
-  background: #1f3e76 !important;
+  background: #00a3ff !important;
   border: none;
   padding: 9px 18px;
   font-family: "Roboto", sans-serif;
@@ -57,33 +65,39 @@
 }
 
 .sidenav {
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   background-image: linear-gradient(
     to top,
-    #1e37c2 0%,
-    #1e37c2 1%,
+    #1e3c72 0%,
+    #1e3c72 1%,
     #2a5298 100%
   );
-  transition: 0.5s ease;
+  transition: 0.5s;
 }
+
 .sidenav-open {
   width: 250px;
 }
+
 .sidenav-close {
   width: 0;
 }
+
 .section {
-  transition: 0.5s ease;
+  transition: 0.5s;
 }
+
 .section-open {
   margin-left: 250px;
 }
+
 .section-close {
   margin-left: 0;
 }
+
 .avatar {
   font-size: 25px;
   color: #234582;
@@ -98,9 +112,6 @@ button:focus {
   width: 50px;
   height: 40px;
   border: 1px solid #f5f5f5;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 25px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .toolbar a {
@@ -117,13 +128,83 @@ button:focus {
   border-color: #ccc;
   transition: 0.5s;
 }
-.toolbar i:hover {
-  font-size: 18px;
-  color: rgb(99, 3, 195);
-  transition: 1s ease;
+
+/* badges */
+.badge-primary {
+  background-color: #00a3ff !important;
 }
 
-/****** STUDENT SKELETON LOADER CODE START *****/
+.badge-secondary {
+  background-color: #e4e6ef !important;
+  color: #323232;
+}
+
+.badge-success {
+  background-color: #50cd89 !important;
+}
+
+.badge-info {
+  background-color: #7239ea !important;
+}
+
+.badge-warning {
+  background-color: #ffc700 !important;
+}
+
+.badge-danger {
+  background-color: #f1416c !important;
+}
+
+.badge-dark {
+  background-color: #181c32 !important;
+}
+
+/* icon buttons */
+.icon-btn-primary,
+.icon-btn-success,
+.icon-btn-info,
+.icon-btn-warning,
+.icon-btn-danger,
+.icon-btn-dark {
+  background-color: #f1faff !important;
+  color: #00a3ff !important;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-btn-success {
+  background-color: #e8fff3 !important;
+  color: #5ad8d1 !important;
+}
+
+.icon-btn-info {
+  background-color: #f8f5ff !important;
+  color: #8339ea !important;
+  border: none;
+}
+
+.icon-btn-warning {
+  background-color: #fff8dd !important;
+  color: #ffc700 !important;
+}
+
+.icon-btn-danger {
+  background-color: #fff5f8 !important;
+  color: #f1416c !important;
+}
+
+.icon-btn-dark {
+  background-color: #eff2f5 !important;
+  color: #181c32 !important;
+}
+
+/* skelton loader */
 .skeleton {
   position: relative;
   overflow: hidden;
@@ -132,12 +213,13 @@ button:focus {
 .skeleton-loader {
   width: 80%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.140);
+  background: rgba(0, 0, 0, 0.05);
   position: absolute;
-  left: 100%;
   top: 0;
+  left: 100%;
   animation: loader linear 2s infinite;
 }
+
 @keyframes loader {
   from {
     top: 0;
@@ -149,20 +231,20 @@ button:focus {
   }
 }
 
-/***** STUDENT SKELETON LOADER CODE END ******/
-
-/* MEDIA QUERY */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .sidenav-open {
+    width: 0;
+  }
+
+  .sidenav-close {
     width: 60px;
   }
-  .sidenav-close {
-    width: 0px;
-  }
+
   .section-open {
-    margin-left: 60px;
-  }
-  .section-close {
     margin-left: 0;
+  }
+
+  .section-close {
+    margin-left: 60px;
   }
 }
