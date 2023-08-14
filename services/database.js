@@ -45,7 +45,11 @@ const paginateData = async (from, to, schema) => {
 };
 
 //*********** DELETE STUDENTS **********/
-const deleteById = () => {};
+const deleteById = async (id, schema) => {
+  const currentSchema = schemaList[schema];
+  const dataRes = await currentSchema.findByIdAndDelete(id);
+  return dataRes;
+};
 
 module.exports = {
   createRecord: createRecord,
@@ -53,5 +57,5 @@ module.exports = {
   updateByQuery: updateByQuery,
   countData: countData,
   paginateData: paginateData,
-  deleteById:deleteById
+  deleteById: deleteById,
 };
