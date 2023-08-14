@@ -127,6 +127,10 @@ const studentAction = () => {
     //Delete
     $(".delete-student").each(function () {
       $(this).click(async function () {
+        //find parent
+        const tr = this.parentElement.parentElement.parentElement;
+
+        //get id
         const id = $(this).data("id");
         const token = getToken("authToken");
         const request = {
@@ -212,4 +216,9 @@ const getToken = (cookieName) => {
     }
   }
   return cookieValue;
+};
+
+//******* SWAL CONFIRMATION *******/
+const confirm = () => {
+  return new Promise
 };
