@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
 });
 
 //**** DELETE STUDENT *****/
-router.post("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   studentsController.deleteStudents(req, res);
 });
 
