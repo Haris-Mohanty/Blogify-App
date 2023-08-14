@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 
 //**** DELETE STUDENT *****/
 router.post("/:id", (req, res) => {
-  studentsController.deleteStudent(req, res);
+  studentsController.deleteStudents(req, res);
 });
 
 module.exports = router;

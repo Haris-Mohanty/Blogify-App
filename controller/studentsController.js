@@ -54,8 +54,12 @@ const paginate = async (req, res) => {
   });
 };
 
+//************ DELETE STUDENTS ***********/
+const deleteStudents = async (req, res) => {};
+
 module.exports = {
   create: create,
   countStudent: countStudent,
   paginate: paginate,
+  deleteStudents: deleteStudents,
 };
