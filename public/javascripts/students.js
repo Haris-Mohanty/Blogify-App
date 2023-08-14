@@ -77,7 +77,10 @@ const showStudents = async (from, to) => {
           <td class='text-nowrap'>
             <div>
               <i class="fa fa-user-circle" style="font-size:45px;"></i>
-              <div></div>
+              <div>
+                <p class='p-0 m-0 text-capitalize'>${student.studentName}</p>
+                <small class='text-uppercase'>${student.studentCountry}</small>
+              </div>
             </div>
           </td>
           <td class='text-nowrap'>${student.studentEmail}</td>
