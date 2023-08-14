@@ -140,8 +140,15 @@ const studentAction = () => {
             token: token,
           },
         };
-        const res = await ajax(request);
-        console.log(res);
+        try {
+          const isConfirm = await confirm("Deleted");
+          if (isConfirm) {
+            await ajax(request);
+            tr.remove();
+          }
+        } catch (err) {
+          console.log(err);
+        }
       });
     });
   });
@@ -219,6 +226,24 @@ const getToken = (cookieName) => {
 };
 
 //******* SWAL CONFIRMATION *******/
-const confirm = () => {
-  return new Promise
+const confirm = (message) => {
+  return new Promise((resolve, reject) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        resolve(true);
+        swal(`Poof! Your imaginary file has been ${message}!`, {
+          icon: "success",
+        });
+      } else {
+        reject(false);
+        swal("Your imaginary file is safe!");
+      }
+    });
+  });
 };
