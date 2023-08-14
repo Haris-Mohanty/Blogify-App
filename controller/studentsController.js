@@ -66,6 +66,14 @@ const paginate = async (req, res) => {
 const deleteStudents = async (req, res) => {
   //token verify
   const tokenData = await tokenService.verifyToken(req);
+  if (tokenData.isVerified) {
+    const id = req.params.id;
+    
+  } else {
+    res.status(401).json({
+      message: "Error in Delete Student API!",
+    });
+  }
 };
 
 module.exports = {
