@@ -46,16 +46,27 @@ const countStudent = async (req, res) => {
 
 //****** PAGINATE (SHOW STUDENT DETAILS) ********/
 const paginate = async (req, res) => {
-  let from = Number(req.params.from);
-  let to = Number(req.params.to);
-  const dataRes = await dataBase.paginateData(from, to, "studentSchema");
-  res.status(200).json({
-    data: dataRes,
-  });
+  //Token Verify
+  const tokenData = await tokenService.verifyToken(req);
+  if (tokenData.isVerified) {
+    let from = Number(req.params.from);
+    let to = Number(req.params.to);
+    const dataRes = await dataBase.paginateData(from, to, "studentSchema");
+    res.status(200).json({
+      data: dataRes,
+    });
+  } else {
+    res.status(401).json({
+      message: "Error in Paginate API!",
+    });
+  }
 };
 
 //************ DELETE STUDENTS ***********/
-const deleteStudents = async (req, res) => {};
+const deleteStudents = async (req, res) => {
+  //token verify
+  const tokenData = await tokenService.verifyToken(req);
+};
 
 module.exports = {
   create: create,
