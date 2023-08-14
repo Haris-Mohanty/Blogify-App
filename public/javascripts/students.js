@@ -68,6 +68,9 @@ const showStudents = async (from, to) => {
   const request = {
     type: "GET",
     url: `students/${from}/${to}`,
+    isLoader: true,
+    commonBtn: ".tmp",
+    loaderBtn: ".students-skeleton",
   };
   const response = await ajax(request);
   if (response.data.length > 0) {
