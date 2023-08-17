@@ -42,6 +42,9 @@ $(document).ready(() => {
     };
     try {
       const response = await ajax(request);
+      //for live add
+      const student = response.data;
+      dynamicTR(student);
       $("#student-modal").modal("hide");
     } catch (error) {
       $(".student-email").addClass(
