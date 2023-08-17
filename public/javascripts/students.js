@@ -47,6 +47,9 @@ $(document).ready(() => {
       const tr = dynamicTR(student);
       $(".student-list").append(tr);
 
+      //Activaing student action(delete, edit, share)
+      studentAction();
+
       $("#student-modal").modal("hide");
     } catch (error) {
       $(".student-email").addClass(
