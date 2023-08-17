@@ -119,7 +119,45 @@ const studentAction = () => {
 
 //******* DYNAMIC TABLE CREATE CODE *******/
 const dynamicTR = (student) => {
-
+  let tr = `
+    <tr class='animate__animated animate__fadeIn animate__slower'>
+      <td class='text-nowrap'>
+        <div class='d-flex align-items-center'>
+          <i class="fa fa-user-circle mx-2" style="font-size:45px;"></i>
+          <div>
+            <p class='p-0 m-0 text-capitalize fw-bold'>${student.studentName}</p>
+            <small class='text-uppercase'>${student.studentCountry}</small>
+          </div>
+        </div>
+      </td>
+      <td class='text-nowrap'>${student.studentEmail}</td>
+      <td class='text-nowrap'>${student.studentMobile}</td>
+      <td class='text-nowrap'>${student.studentFather}</td>
+      <td class='text-nowrap'>${student.studentDob}</td>
+      <td class='text-nowrap'>${student.studentCountry}</td>
+      <td class='text-nowrap'>${student.studentState}</td>
+      <td class='text-nowrap'>${student.studentPin}</td>
+      <td class='text-nowrap'>${student.studentAddress}</td>
+      <td class='text-nowrap'>
+        <span class='badge badge-danger'>Pending...</span>
+      </td>
+      <td class='text-nowrap'>${student.updatedAt}</td>
+      <td class='text-nowrap'>
+        <div class='d-flex'>
+         <button data-id='${student._id}' class='btn edit-student icon-btn-primary'>
+            <i class='fa fa-edit'></i>
+         </button>
+         <button data-id='${student._id}' class='btn delete-student icon-btn-danger mx-2'>
+            <i class='fa fa-trash'></i>
+         </button>
+         <button data-id='${student._id}' class='btn share-student icon-btn-info'>
+            <i class='fa fa-share'></i>
+         </button>
+        </div>
+      </td>
+    </tr>
+  `;
+  return tr;
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
