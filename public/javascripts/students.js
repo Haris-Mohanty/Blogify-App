@@ -95,7 +95,7 @@ const showStudents = async (from, to) => {
 //****** ACTION (DELETE, EDIT & SHARE) *******/
 const studentAction = () => {
   $(document).ready(() => {
-    //Delete
+    //DELETE STUDENT
     $(".delete-student").each(function () {
       $(this).click(async function () {
         //find parent
@@ -122,6 +122,10 @@ const studentAction = () => {
         }
       });
     });
+  });
+  //EDIT || UPDATE STUDENT
+  $(document).ready(() => {
+  
   });
 };
 
