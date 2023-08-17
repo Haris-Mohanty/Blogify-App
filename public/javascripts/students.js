@@ -136,6 +136,9 @@ const studentAction = () => {
           let value = getStudent[key];
           $(`[name=${key}]`).val(value);
         }
+
+        $(".add-student-btn").addClass("d-none");
+        $(".update-student-btn").removeClass("d-none");
         $("#student-modal").modal("show");
       });
     });
