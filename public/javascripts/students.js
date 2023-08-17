@@ -128,6 +128,10 @@ const studentAction = () => {
     $(".edit-student").each(function () {
       $(this).click(function () {
         const id = $(this).data("id");
+        const studentString = $(this).data("student");
+        const studentData = studentString.replace(/'/g, '"');
+        const getStudent = JSON.parse(studentData);
+        console.log(getStudent);
         $("#student-modal").modal("show");
       });
     });
@@ -136,6 +140,8 @@ const studentAction = () => {
 
 //******* DYNAMIC TABLE CREATE CODE *******/
 const dynamicTR = (student) => {
+  const studentString = JSON.stringify(student);
+  let studentData = studentString.replace(/"/g, "'");
   let tr = `
     <tr class='animate__animated animate__fadeIn animate__slower'>
       <td class='text-nowrap'>
@@ -161,7 +167,7 @@ const dynamicTR = (student) => {
       <td class='text-nowrap'>${student.updatedAt}</td>
       <td class='text-nowrap'>
         <div class='d-flex'>
-         <button data-id='${student._id}' class='btn edit-student icon-btn-primary'>
+         <button data-student="${studentData}" data-id='${student._id}' class='btn edit-student icon-btn-primary'>
             <i class='fa fa-edit'></i>
          </button>
          <button data-id='${student._id}' class='btn delete-student icon-btn-danger mx-2'>
