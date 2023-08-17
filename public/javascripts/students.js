@@ -125,7 +125,12 @@ const studentAction = () => {
   });
   //EDIT || UPDATE STUDENT
   $(document).ready(() => {
-  
+    $(".edit-student").each(function () {
+      $(this).click(function () {
+        const id = $(this).data("id");
+        $("#student-modal").modal("show");
+      });
+    });
   });
 };
 
