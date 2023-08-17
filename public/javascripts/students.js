@@ -131,7 +131,11 @@ const studentAction = () => {
         const studentString = $(this).data("student");
         const studentData = studentString.replace(/'/g, '"');
         const getStudent = JSON.parse(studentData);
-        console.log(getStudent);
+
+        for (let key in getStudent) {
+          let value = getStudent[key];
+          $(`[name=${key}]`).val(value);
+        }
         $("#student-modal").modal("show");
       });
     });
