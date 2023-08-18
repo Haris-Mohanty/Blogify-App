@@ -125,23 +125,35 @@ const studentAction = () => {
   });
   //EDIT || UPDATE STUDENT
   $(document).ready(() => {
+    let id = "";
     $(".edit-student").each(function () {
       $(this).click(function () {
-        const id = $(this).data("id");
+        id = $(this).data("id");
         const studentString = $(this).data("student");
         const studentData = studentString.replace(/'/g, '"');
         const getStudent = JSON.parse(studentData);
 
         for (let key in getStudent) {
           let value = getStudent[key];
-          $(`[name=${key}]`).val(value);
+          $(`[name=${key}]`, "#student-form").val(value);
         }
 
         $(".add-student-btn").addClass("d-none");
         $(".update-student-btn").removeClass("d-none");
+        $(".update-student-btn").attr("data-id", id);
         $("#student-modal").modal("show");
       });
     });
+    updateStudent(id);
+  });
+};
+
+//******* UPDATE STUDENT CODE ******/
+const updateStudent = () => {
+  $(".update-student-btn").click(function (e) {
+    e.preventDefault();
+    let id = this.getAttribute("data-id");
+    alert(id);
   });
 };
 
@@ -169,7 +181,7 @@ const dynamicTR = (student) => {
       <td class='text-nowrap'>${student.studentPin}</td>
       <td class='text-nowrap'>${student.studentAddress}</td>
       <td class='text-nowrap'>
-        <span class='badge badge-danger'>Pending...</span>
+        <span class='badge badge-danger'>Pending...</span> 
       </td>
       <td class='text-nowrap'>${student.updatedAt}</td>
       <td class='text-nowrap'>
