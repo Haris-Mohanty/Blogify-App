@@ -80,12 +80,28 @@ const deleteStudents = async (req, res) => {
 };
 
 //******** UPDATE STUDENTS ******/
-const updateStudents = () => {};
+const updateStudents = async (req, res) => {
+  //token verify
+  const tokenData = await tokenService.verifyToken(req);
+
+  if (tokenData.isVerified) {
+    const id = req.params.id;
+    const data = req.body;
+    const updateRes = await dataBase.updateById(id, data, "studentSchema");
+    res.status(200).json({
+      data: updateRes,
+    });
+  } else {
+    res.status(401).json({
+      message: "Error in Update Student API!",
+    });
+  }
+};
 
 module.exports = {
   create: create,
   countStudent: countStudent,
   paginate: paginate,
   deleteStudents: deleteStudents,
-  updateStudents:updateStudents
+  updateStudents: updateStudents,
 };
