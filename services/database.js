@@ -52,8 +52,10 @@ const deleteById = async (id, schema) => {
 };
 
 //****** UPDATE STUDENT ******/
-const updateById = async () => {
-  const curren
+const updateById = async (id, data, schema) => {
+  const currentSchema = schemaList[schema];
+  const dataRes = await currentSchema.findByIdAndUpate(id, data);
+  return dataRes;
 };
 
 module.exports = {
