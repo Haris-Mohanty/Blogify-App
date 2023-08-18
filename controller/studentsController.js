@@ -79,9 +79,13 @@ const deleteStudents = async (req, res) => {
   }
 };
 
+//******** UPDATE STUDENTS ******/
+const updateStudents = () => {};
+
 module.exports = {
   create: create,
   countStudent: countStudent,
   paginate: paginate,
   deleteStudents: deleteStudents,
+  updateStudents:updateStudents
 };
