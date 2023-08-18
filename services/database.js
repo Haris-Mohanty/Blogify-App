@@ -51,6 +51,11 @@ const deleteById = async (id, schema) => {
   return dataRes;
 };
 
+//****** UPDATE STUDENT ******/
+const updateById = async () => {
+  const curren
+};
+
 module.exports = {
   createRecord: createRecord,
   getRecordByQuery: getRecordByQuery,
@@ -58,4 +63,5 @@ module.exports = {
   countData: countData,
   paginateData: paginateData,
   deleteById: deleteById,
+  updateById: updateById,
 };
