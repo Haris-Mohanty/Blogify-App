@@ -26,6 +26,8 @@ router.delete("/:id", (req, res) => {
 });
 
 //******* UPDATE STUDENT ******/
-router.put("/:id", (req, res) => {});
+router.put("/:id", (req, res) => {
+  studentsController.updateStudents(req, res);
+});
 
 module.exports = router;
