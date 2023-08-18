@@ -25,4 +25,7 @@ router.delete("/:id", (req, res) => {
   studentsController.deleteStudents(req, res);
 });
 
+//******* UPDATE STUDENT ******/
+router.put("/:id", (req, res) => {});
+
 module.exports = router;
