@@ -334,4 +334,5 @@ const getPaginationList = () => {
     type: "GET",
     ulr: "/students/count-all",
   };
+  ajax(request);
 };
