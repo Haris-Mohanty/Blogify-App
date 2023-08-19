@@ -329,10 +329,11 @@ const confirm = (message) => {
 };
 
 //********* PAGINATION CODE *****/
-const getPaginationList = () => {
+const getPaginationList = async () => {
   const request = {
     type: "GET",
-    ulr: "/students/count-all",
+    url: "/students/count-all",
   };
-  ajax(request);
+  const res = await ajax(request);
+  console.log(res);
 };
