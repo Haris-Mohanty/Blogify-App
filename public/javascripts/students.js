@@ -330,10 +330,19 @@ const confirm = (message) => {
 
 //********* PAGINATION CODE *****/
 const getPaginationList = async () => {
+  let i;
   const request = {
     type: "GET",
     url: "/students/count-all",
   };
   const res = await ajax(request);
-  console.log(res);
+  const totalStudent = res.data;
+  let length = totalStudent / 5;
+
+  if (length.toString().indexOf(".") != -1) {
+    alert("yes");
+  }
+  for (i = 1; i <= length; i++) {
+    let button = ``;
+  }
 };
