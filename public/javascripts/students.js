@@ -346,7 +346,9 @@ const getPaginationList = async () => {
   }
   for (i = 1; i <= length; i++) {
     let button = `
-      <button data-skip=${skipData} class="border btn-design paginate-btn">
+      <button data-skip=${skipData} class="border btn-design paginate-btn ${
+      i == 1 ? "active" : ""
+    }">
         <i>${i}</i>
       </button>
     `;
@@ -358,6 +360,8 @@ const getPaginationList = async () => {
 const getPaginationData = () => {
   $(".paginate-btn").each(function () {
     $(this).click(function () {
+      removeClass(".paginate-btn", "active");
+      $(this).addClass("active");
       let skip = $(this).data("skip");
       showStudents(skip, 5);
     });
