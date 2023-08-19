@@ -367,3 +367,22 @@ const getPaginationData = () => {
     });
   });
 };
+
+//next btn code
+$(document).ready(function () {
+  $("#next").click(function () {
+    let currentIndex = 0;
+    $(".paginate-btn").each(function () {
+      if ($(this).hasClass("active")) {
+        currentIndex = $($(this)).index();
+      }
+    });
+    $(".paginate-btn").eq(currentIndex + 1).click();
+  });
+});
+
+const removeClass = (element, className) => {
+  $(element).each(function () {
+    $(this).removeClass(className);
+  });
+};
