@@ -340,9 +340,14 @@ const getPaginationList = async () => {
   let length = totalStudent / 5;
 
   if (length.toString().indexOf(".") != -1) {
-    alert("yes");
+    length = length + 1;
   }
   for (i = 1; i <= length; i++) {
-    let button = ``;
+    let button = `
+      <button class="border btn-design">
+        <i>${i}</i>
+      </button>
+    `;
+    $("#student-pagination").append(button);
   }
 };
