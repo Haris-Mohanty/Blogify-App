@@ -172,8 +172,14 @@ const updateStudent = (oldTr) => {
       const students = response.data;
       const tr = dynamicTR(students);
 
+      //update data(live update)
       const updateTD = $(tr).html();
       $(oldTr).html(updateTD);
+      $(".add-student-btn").removeClass("d-none");
+      $(".update-student-btn").addClass("d-none");
+
+      //edit btn working
+      studentAction();
 
       $("#student-modal").modal("hide");
     } catch (err) {
