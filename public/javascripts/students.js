@@ -338,16 +338,18 @@ const getPaginationList = async () => {
   const res = await ajax(request);
   const totalStudent = res.data;
   let length = totalStudent / 5;
+  let skipData = 0;
 
   if (length.toString().indexOf(".") != -1) {
     length = length + 1;
   }
   for (i = 1; i <= length; i++) {
     let button = `
-      <button class="border btn-design">
+      <button data-skip=${skipData} class="border btn-design paginate-btn">
         <i>${i}</i>
       </button>
     `;
     $("#student-pagination").append(button);
+    skipData = skipData + 5;
   }
 };
