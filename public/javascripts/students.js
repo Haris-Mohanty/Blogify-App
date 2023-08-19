@@ -161,10 +161,15 @@ const updateStudent = () => {
       type: "PUT",
       url: "/students/" + id,
       data: formData,
+      isLoader: true,
+      commonBtn: ".update-student-btn",
+      loaderBtn: ".student-loader",
     };
     try {
       const response = await ajax(request);
-      console.log(response);
+      const students = response.data;
+      const tr = dynamicTR(students);
+      $(".student-list").append(tr);
     } catch (err) {
       console.log(err);
     }
