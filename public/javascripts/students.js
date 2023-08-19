@@ -74,6 +74,7 @@ $(document).ready(() => {
 });
 //show students function def
 const showStudents = async (from, to) => {
+  $(".student-list").html("");
   const request = {
     type: "GET",
     url: `students/${from}/${to}`,
@@ -352,4 +353,13 @@ const getPaginationList = async () => {
     $("#student-pagination").append(button);
     skipData = skipData + 5;
   }
+  getPaginationData();
+};
+const getPaginationData = () => {
+  $(".paginate-btn").each(function () {
+    $(this).click(function () {
+      let skip = $(this).data("skip");
+      showStudents(skip, 5);
+    });
+  });
 };
