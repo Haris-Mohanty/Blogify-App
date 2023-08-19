@@ -177,11 +177,11 @@ const updateStudent = (oldTr) => {
       $(oldTr).html(updateTD);
       $(".add-student-btn").removeClass("d-none");
       $(".update-student-btn").addClass("d-none");
+      $("#student-modal").modal("hide");
+      $(form).trigger("reset");
 
       //edit btn working
       studentAction();
-
-      $("#student-modal").modal("hide");
     } catch (err) {
       console.log(err);
     }
