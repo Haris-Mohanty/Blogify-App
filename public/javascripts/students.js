@@ -153,7 +153,7 @@ const updateStudent = () => {
   $(".update-student-btn").click(function (e) {
     e.preventDefault();
     let id = this.getAttribute("data-id");
-    alert(id);
+    const token = getToken("authToken");
   });
 };
 
