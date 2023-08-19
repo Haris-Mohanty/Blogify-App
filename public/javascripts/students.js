@@ -358,8 +358,9 @@ const getPaginationList = async () => {
   getPaginationData();
 };
 const getPaginationData = () => {
-  $(".paginate-btn").each(function () {
+  $(".paginate-btn").each(function (index) {
     $(this).click(function () {
+      controlPrevAndNext(index);
       removeClass(".paginate-btn", "active");
       $(this).addClass("active");
       let skip = $(this).data("skip");
