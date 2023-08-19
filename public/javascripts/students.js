@@ -150,15 +150,24 @@ const studentAction = () => {
 
 //******* UPDATE STUDENT CODE ******/
 const updateStudent = () => {
-  $(".update-student-btn").click(function (e) {
+  $(".update-student-btn").click(async function (e) {
     e.preventDefault();
     let id = this.getAttribute("data-id");
     const token = getToken("authToken");
     const form = document.querySelector("#student-form");
+    let formData = new FormData(form);
+    formData.append("token", token);
     const request = {
-      type:"PUT",
-      
+      type: "PUT",
+      url: "/students/" + id,
+      data: formData,
     };
+    try {
+      const response = await ajax(request);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   });
 };
 
