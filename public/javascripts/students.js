@@ -154,6 +154,11 @@ const updateStudent = () => {
     e.preventDefault();
     let id = this.getAttribute("data-id");
     const token = getToken("authToken");
+    const form = document.querySelector("#student-form");
+    const request = {
+      type:"PUT",
+      
+    };
   });
 };
 
