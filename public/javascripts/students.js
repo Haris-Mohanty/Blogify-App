@@ -70,6 +70,7 @@ $(document).ready(() => {
   let from = 0;
   let to = 5;
   showStudents(from, to);
+  getPaginationList();
 });
 //show students function def
 const showStudents = async (from, to) => {
@@ -325,4 +326,12 @@ const confirm = (message) => {
       }
     });
   });
+};
+
+//********* PAGINATION CODE *****/
+const getPaginationList = () => {
+  const request = {
+    type: "GET",
+    ulr: "/students/count-all",
+  };
 };
