@@ -54,7 +54,9 @@ const deleteById = async (id, schema) => {
 //****** UPDATE STUDENT ******/
 const updateById = async (id, data, schema) => {
   const currentSchema = schemaList[schema];
-  const dataRes = await currentSchema.findByIdAndUpdate(id, data);
+  const dataRes = await currentSchema.findByIdAndUpdate(id, data, {
+    new: true,
+  });
   return dataRes;
 };
 
