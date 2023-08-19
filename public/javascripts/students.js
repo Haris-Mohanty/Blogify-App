@@ -126,9 +126,12 @@ const studentAction = () => {
   //EDIT || UPDATE STUDENT
   $(document).ready(() => {
     let id = "";
+    let tr = "";
     $(".edit-student").each(function () {
       $(this).click(function () {
+        tr = this.parentElement.parentElement.parentElement;
         id = $(this).data("id");
+        updateStudent(tr);
         const studentString = $(this).data("student");
         const studentData = studentString.replace(/'/g, '"');
         const getStudent = JSON.parse(studentData);
@@ -144,12 +147,11 @@ const studentAction = () => {
         $("#student-modal").modal("show");
       });
     });
-    updateStudent(id);
   });
 };
 
 //******* UPDATE STUDENT CODE ******/
-const updateStudent = () => {
+const updateStudent = (oldTr) => {
   $(".update-student-btn").click(async function (e) {
     e.preventDefault();
     let id = this.getAttribute("data-id");
@@ -169,7 +171,11 @@ const updateStudent = () => {
       const response = await ajax(request);
       const students = response.data;
       const tr = dynamicTR(students);
-      $(".student-list").append(tr);
+
+      const updateTD = $(tr).html();
+      $(oldTr).html(updateTD);
+
+      $("#student-modal").modal("hide");
     } catch (err) {
       console.log(err);
     }
