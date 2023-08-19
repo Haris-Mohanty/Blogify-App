@@ -377,9 +377,38 @@ $(document).ready(function () {
         currentIndex = $($(this)).index();
       }
     });
-    $(".paginate-btn").eq(currentIndex + 1).click();
+    $(".paginate-btn")
+      .eq(currentIndex + 1)
+      .click();
+    controlPrevAndNext(currentIndex + 1);
   });
 });
+//prev btn code
+$(document).ready(function () {
+  $("#prev").click(function () {
+    let currentIndex = 0;
+    $(".paginate-btn").each(function () {
+      if ($(this).hasClass("active")) {
+        currentIndex = $($(this)).index();
+      }
+    });
+    $(".paginate-btn")
+      .eq(currentIndex - 1)
+      .click();
+    controlPrevAndNext(currentIndex - 1);
+  });
+});
+const controlPrevAndNext = (currentIndex) => {
+  const totalBtn = $(".paginate-btn").length - 1;
+  if (currentIndex == totalBtn) {
+    $("#next").attr("disabled", true);
+  } else if (currentIndex > 0) {
+    $("#prev").attr("disabled", false);
+  } else {
+    $("#next").attr("disabled", false);
+    $("#prev").attr("disabled", true);
+  }
+};
 
 const removeClass = (element, className) => {
   $(element).each(function () {
