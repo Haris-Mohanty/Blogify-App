@@ -129,8 +129,9 @@ const studentAction = () => {
   $(document).ready(() => {
     let id = "";
     let tr = "";
-    $(".edit-student").each(function () {
-      $(this).click(function () {
+    let allEditBtn = $(".edit-student");
+    for (let btn of allEditBtn) {
+      btn.onclick = function () {
         tr = this.parentElement.parentElement.parentElement;
         id = $(this).data("id");
         updateStudent(tr);
@@ -147,8 +148,8 @@ const studentAction = () => {
         $(".update-student-btn").removeClass("d-none");
         $(".update-student-btn").attr("data-id", id);
         $("#student-modal").modal("show");
-      });
-    });
+      };
+    }
   });
 };
 

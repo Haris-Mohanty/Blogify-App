@@ -10,7 +10,10 @@ include profile
             div.card-body.border-none
                 div.row
                     div.col-md-3
-                        input(type="text" class="input remove-focus form-control" placeholder="Search")
+                        div.d-flex.align-items-center 
+                            button.btn.icon-btn-info.mx-2
+                                i.fa.fa-cog.fa-spin
+                            input(type="text" class="input remove-focus p-3 form-control" placeholder="Search")
                     div.col-md-6
                     div.col-md-3
                         button.btn.btn-light.mx-4 Export
