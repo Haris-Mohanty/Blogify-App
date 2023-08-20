@@ -444,6 +444,16 @@ const removeClass = (element, className) => {
 //******** FILTER || SEARCH STUDENT (BY NAME, EMAIL, MOBILE) ******/
 $(document).ready(() => {
   $(".filter").on("input", function () {
-    alert();
+    let keyword = $(this).val().trim().toLowerCase();
+    let tr = $(".student-list tr");
+    $(tr).each(function () {
+      let allTd = this.querySelectorAll("TD");
+      let allName = allTd[0].querySelector("P").innerHTML;
+      if (allName.toLowerCase().indexOf(keyword) != -1) {
+        $(this).remove("d-none");
+      } else {
+        $(this).addClass("d-none");
+      }
+    });
   });
 });
