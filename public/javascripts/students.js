@@ -161,6 +161,7 @@ const updateStudent = (oldTr) => {
     const form = document.querySelector("#student-form");
     let formData = new FormData(form);
     formData.append("token", token);
+    formData.append("updatedAt", new Date());
     const request = {
       type: "PUT",
       url: "/students/" + id,
@@ -177,6 +178,7 @@ const updateStudent = (oldTr) => {
       //update data(live update)
       const updateTD = $(tr).html();
       $(oldTr).html(updateTD);
+      oldTr = "";
       $(".add-student-btn").removeClass("d-none");
       $(".update-student-btn").addClass("d-none");
       $("#student-modal").modal("hide");
@@ -218,7 +220,7 @@ const dynamicTR = (student) => {
       <td class='text-nowrap'>
         <span class='badge badge-danger'>Pending...</span> 
       </td>
-      <td class='text-nowrap'>${formatDate(student.updatedAt)}</td>
+      <td class='text-nowrap'>${formatDate(student.createdAt)}</td>
       <td class='text-nowrap'>
         <div class='d-flex'>
          <button data-student="${studentData}" data-id='${
