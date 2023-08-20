@@ -251,7 +251,7 @@ const formatDate = (dateStr) => {
   dd < 10 ? (dd = "0" + dd) : (dd = dd);
   mm < 10 ? (mm = "0" + mm) : (mm = mm);
 
-  return dd + "-" + mm + "-" + yy;
+  return dd + "-" + mm + "-" + yy + " " + date.toLocaleTimeString();
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
