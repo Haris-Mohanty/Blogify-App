@@ -200,7 +200,9 @@ const dynamicTR = (student) => {
         <div class='d-flex align-items-center'>
           <i class="fa fa-user-circle mx-2" style="font-size:45px;"></i>
           <div>
-            <p class='p-0 m-0 text-capitalize fw-bold'>${student.studentName}</p>
+            <p class='p-0 m-0 text-capitalize fw-bold'>${
+              student.studentName
+            }</p>
             <small class='text-uppercase'>${student.studentCountry}</small>
           </div>
         </div>
@@ -216,16 +218,22 @@ const dynamicTR = (student) => {
       <td class='text-nowrap'>
         <span class='badge badge-danger'>Pending...</span> 
       </td>
-      <td class='text-nowrap'>${student.updatedAt}</td>
+      <td class='text-nowrap'>${formatDate(student.updatedAt)}</td>
       <td class='text-nowrap'>
         <div class='d-flex'>
-         <button data-student="${studentData}" data-id='${student._id}' class='btn edit-student icon-btn-primary'>
+         <button data-student="${studentData}" data-id='${
+    student._id
+  }' class='btn edit-student icon-btn-primary'>
             <i class='fa fa-edit'></i>
          </button>
-         <button data-id='${student._id}' class='btn delete-student icon-btn-danger mx-2'>
+         <button data-id='${
+           student._id
+         }' class='btn delete-student icon-btn-danger mx-2'>
             <i class='fa fa-trash'></i>
          </button>
-         <button data-id='${student._id}' class='btn share-student icon-btn-info'>
+         <button data-id='${
+           student._id
+         }' class='btn share-student icon-btn-info'>
             <i class='fa fa-share'></i>
          </button>
         </div>
@@ -233,6 +241,10 @@ const dynamicTR = (student) => {
     </tr>
   `;
   return tr;
+};
+//Date formating
+const formatDate = () => {
+  
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
@@ -403,8 +415,10 @@ const controlPrevAndNext = (currentIndex) => {
   const totalBtn = $(".paginate-btn").length - 1;
   if (currentIndex == totalBtn) {
     $("#next").attr("disabled", true);
+    $("#prev").attr("disabled", false);
   } else if (currentIndex > 0) {
     $("#prev").attr("disabled", false);
+    $("#next").attr("disabled", false);
   } else {
     $("#next").attr("disabled", false);
     $("#prev").attr("disabled", true);
