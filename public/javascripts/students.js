@@ -455,7 +455,7 @@ $(document).ready(() => {
         $(this).remove("d-none");
       } else if (email.toLowerCase().indexOf(keyword) != -1) {
         $(this).remove("d-none");
-      } else if (mobile.toLowerCase().indexOf(keyword) != -1) {
+      } else if (mobile.toString().indexOf(keyword) != -1) {
         $(this).remove("d-none");
       } else {
         $(this).addClass("d-none");
