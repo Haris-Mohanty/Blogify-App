@@ -440,3 +440,10 @@ const removeClass = (element, className) => {
     $(this).removeClass(className);
   });
 };
+
+//******** FILTER || SEARCH STUDENT (BY NAME, EMAIL, MOBILE) ******/
+$(document).ready(() => {
+  $(".filter").on("input", function () {
+    alert();
+  });
+});
