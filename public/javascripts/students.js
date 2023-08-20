@@ -243,8 +243,15 @@ const dynamicTR = (student) => {
   return tr;
 };
 //Date formating
-const formatDate = () => {
-  
+const formatDate = (dateStr) => {
+  let date = new Date(dateStr);
+  let dd = date.getDate();
+  let mm = date.getMonth() + 1;
+  let yy = date.getFullYear();
+  dd < 10 ? (dd = "0" + dd) : (dd = dd);
+  mm < 10 ? (mm = "0" + mm) : (mm = mm);
+
+  return dd + "-" + mm + "-" + yy;
 };
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
