@@ -449,7 +449,13 @@ $(document).ready(() => {
     $(tr).each(function () {
       let allTd = this.querySelectorAll("TD");
       let allName = allTd[0].querySelector("P").innerHTML;
+      let email = allTd[1].innerHTML;
+      let mobile = allTd[2].innerHTML;
       if (allName.toLowerCase().indexOf(keyword) != -1) {
+        $(this).remove("d-none");
+      } else if (email.toLowerCase().indexOf(keyword) != -1) {
+        $(this).remove("d-none");
+      } else if (mobile.toLowerCase().indexOf(keyword) != -1) {
         $(this).remove("d-none");
       } else {
         $(this).addClass("d-none");
