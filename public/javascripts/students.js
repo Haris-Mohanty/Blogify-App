@@ -452,11 +452,11 @@ $(document).ready(() => {
       let email = allTd[1].innerHTML;
       let mobile = allTd[2].innerHTML;
       if (allName.toLowerCase().indexOf(keyword) != -1) {
-        $(this).remove("d-none");
+        $(this).removeClass("d-none");
       } else if (email.toLowerCase().indexOf(keyword) != -1) {
-        $(this).remove("d-none");
+        $(this).removeClass("d-none");
       } else if (mobile.toString().indexOf(keyword) != -1) {
-        $(this).remove("d-none");
+        $(this).removeClass("d-none");
       } else {
         $(this).addClass("d-none");
       }
