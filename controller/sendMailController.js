@@ -41,11 +41,11 @@ const sendEmail = async (req, res) => {
     try {
       await mailer.sendEmail(emailInfo).promise();
       res.status(200).json({
-        message: "Sending Success!",
+        message: "Email Sending Successfully!",
       });
     } catch (err) {
       res.status(424).json({
-        message: "Sending Failed!",
+        message: "Sending Email Failed!",
       });
       console.log(err);
     }
