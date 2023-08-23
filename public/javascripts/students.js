@@ -151,8 +151,9 @@ const studentAction = () => {
       };
     }
   });
-  //SHARE STUDENT(to email)
+  //****** SHARE STUDENT(to email) ******/
   $(document).ready(() => {
+    //modal open & show link
     $(".share-student").each(function () {
       $(this).click(function () {
         let studentId = $(this).data("id");
@@ -161,6 +162,10 @@ const studentAction = () => {
         $("#share-modal").modal("show");
       });
     });
+  });
+  //Copy link
+  $(document).ready(() => {
+    $(".copy-btn").click(function () {});
   });
 };
 
