@@ -151,6 +151,12 @@ const studentAction = () => {
       };
     }
   });
+  //SHARE STUDENT(to email)
+  $(document).ready(() => {
+    $(".share-student").each(function () {
+      
+    });
+  });
 };
 
 //******* UPDATE STUDENT CODE ******/
