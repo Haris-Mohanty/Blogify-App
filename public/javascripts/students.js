@@ -180,9 +180,25 @@ const studentAction = () => {
   });
   //Send Email
   $(document).ready(() => {
-    $("#share-email-btn").click(function () {
+    $("#share-email-btn").click(async function () {
       const studentEmail = this.getAttribute("data-email");
-      alert(studentEmail);
+      const token = getToken("authToken");
+      let formData = new FormData();
+      formData.append("token", token);
+      formData.append("subject", "Share Link!");
+      formData.append("message", $(".link").val());
+      formData.append("to", studentEmail);
+      const request = {
+        type: "POST",
+        url: "/sendMail",
+        data: formData,
+      };
+      try {
+        const res = await ajax(request);
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
     });
   });
 };
