@@ -165,7 +165,12 @@ const studentAction = () => {
   });
   //Copy link
   $(document).ready(() => {
-    $(".copy-btn").click(function () {});
+    $("#copy-btn").click(function () {
+      $(".link").select();
+      document.execCommand("copy");
+      $("i", this).removeClass("fa fa-copy");
+      $("i", this).addClass("fa fa-check");
+    });
   });
 };
 
