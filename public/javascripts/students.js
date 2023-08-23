@@ -156,6 +156,7 @@ const studentAction = () => {
     $(".share-student").each(function () {
       $(this).click(function () {
         let studentId = $(this).data("id");
+        let link = `${window.location}/invitation/${studentId}`;
         $(".link").val(studentId);
         $("#share-modal").modal("show");
       });
