@@ -158,7 +158,7 @@ const studentAction = () => {
       $(this).click(function () {
         let studentId = $(this).data("id");
         let studentEmail = $(this).data("email");
-        $("#share-email-btn").attr()
+        $("#share-email-btn").attr("data-email", studentEmail);
         let link = `${window.location}/invitation/${studentId}`;
         $(".link").val(link);
         $("#share-modal").modal("show");
@@ -179,7 +179,6 @@ const studentAction = () => {
     });
   });
   //Send Email
-
 };
 
 //******* UPDATE STUDENT CODE ******/
@@ -263,7 +262,9 @@ const dynamicTR = (student) => {
          }' class='btn delete-student icon-btn-danger mx-2'>
             <i class='fa fa-trash'></i>
          </button>
-         <button data-id='${student._id}' data-email='${student.studentEmail}' class='btn share-student icon-btn-info'>
+         <button data-id='${student._id}' data-email='${
+    student.studentEmail
+  }' class='btn share-student icon-btn-info'>
             <i class='fa fa-share'></i>
          </button>
         </div>
