@@ -157,7 +157,7 @@ const studentAction = () => {
       $(this).click(function () {
         let studentId = $(this).data("id");
         let link = `${window.location}/invitation/${studentId}`;
-        $(".link").val(studentId);
+        $(".link").val(link);
         $("#share-modal").modal("show");
       });
     });
