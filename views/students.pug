@@ -87,35 +87,18 @@ include profile
                                         span.spinner-grow.spinner-grow-sm.mx-2 
                                         span Processing...
         div.modal.animate__animated.animate__slideInDown.animate-faster#share-modal
-            div.modal-dialog.modal-dialog-centered.modal-lg
+            div.modal-dialog.modal-dialog-centered
                 div.modal-content
                     div.modal-body.px-3
                         h4.medium-font Share Link
                             div.row
                                 div.col-md-12
-                                    div.form-group
-                                        input(type="text" name="studentName" placeholder="Student Name" class="form-control input remove-focus mb-3")
-                                    div.form-group
-                                        input(type="email" name="studentEmail" placeholder="Email Address" class="form-control student-email input remove-focus mb-3")
-                                    div.form-group
-                                        input(type="text" name="studentFather" placeholder="Father Name" class="form-control input remove-focus mb-3")
-                                    div.form-group
-                                        input(type="date" name="studentDob" class="form-control input remove-focus mb-3")
-                                    div.form-group.d-flex.mb-3.mx-1
-                                        button.code.btn.btn-light(type="button") (+91)
-                                        input(type="number" name="studentMobile" placeholder="Student Mobile" class="form-control input remove-focus")
-                                div.col-md-6
                                     div.form-group.mb-3
-                                        input(type="text" name="studentCountry" placeholder="Country" class="form-control country input remove-focus")
+                                        input(type="text" name="link" readonly class="form-control link input remove-focus")
                                     div.form-group.mb-3
-                                        input(type="text" name="studentState" placeholder="State" class="form-control input remove-focus")
-                                    div.form-group.mb-3
-                                        input(type="number" name="studentPin" placeholder="Pincode" class="form-control input remove-focus")
-                                    div.form-group.mb-3
-                                        textarea(name="studentAddress" placeholder="Address" class="form-control input remove-focus")
-                                    button.btn.btn-primary.float-end.add-student-btn(type="submit") Submit
-                                    button.btn.btn-info.text-white.btn-design.float-end.update-student-btn.d-none(type="button") Update
-                                    button.btn.btn-danger.btn-design.float-end.d-none.student-loader(type="button" disabled)
-                                        span.spinner-grow.spinner-grow-sm.mx-2 
-                                        span Processing...
+                                        button.btn.icon-btn-info
+                                            i.fa.fa-copy 
+                                        button.btn.icon-btn-warning
+                                            i.fa.fa-envelope     
+
         div.tmp
