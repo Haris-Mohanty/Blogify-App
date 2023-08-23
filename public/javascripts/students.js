@@ -179,6 +179,12 @@ const studentAction = () => {
     });
   });
   //Send Email
+  $(document).ready(() => {
+    $("#share-email-btn").click(function () {
+      const studentEmail = this.getAttribute("data-email");
+      alert(studentEmail);
+    });
+  });
 };
 
 //******* UPDATE STUDENT CODE ******/
