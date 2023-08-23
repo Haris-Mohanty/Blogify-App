@@ -231,6 +231,12 @@ button:focus {
   }
 }
 
+/****** SHARE LOADER ***/
+.progress-loader{
+  width: 100%;
+  
+}
+
 /******* MEDIA QUERY ******/
 
 @media (max-width: 768px) {

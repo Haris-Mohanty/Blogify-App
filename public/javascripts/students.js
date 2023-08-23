@@ -151,7 +151,7 @@ const studentAction = () => {
       };
     }
   });
-  //****** SHARE STUDENT(to email) ******/
+  //****** SHARE STUDENT (to email) ******/
   $(document).ready(() => {
     //modal open & show link
     $(".share-student").each(function () {
@@ -170,8 +170,13 @@ const studentAction = () => {
       document.execCommand("copy");
       $("i", this).removeClass("fa fa-copy");
       $("i", this).addClass("fa fa-check");
+      setTimeout(() => {
+        $("i", this).removeClass("fa fa-check");
+        $("i", this).addClass("fa fa-copy");
+      }, 2000);
     });
   });
+  //Send Email
 };
 
 //******* UPDATE STUDENT CODE ******/
