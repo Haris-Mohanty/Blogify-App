@@ -154,7 +154,10 @@ const studentAction = () => {
   //SHARE STUDENT(to email)
   $(document).ready(() => {
     $(".share-student").each(function () {
-      
+      $(this).click(function () {
+        let studentId = $(this).data("id");
+        $("#share-modal").modal("show");
+      });
     });
   });
 };
