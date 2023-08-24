@@ -1,6 +1,6 @@
 //******* REDIRECT USER TO PROFILE PAGE IF ALREADY LOGGED *******/
 if (document.cookie.indexOf("authToken") != -1) {
-  window.location = "/profile";
+  window.location = "/students";
 }
 
 //****** Request Login Modal ******/
@@ -42,7 +42,7 @@ $(document).ready(() => {
           $(".signup-btn").addClass("bg-success disabled");
           $(".signup-btn").html("Redirecting to Profile page...");
           setTimeout(() => {
-            window.location = "/profile";
+            window.location = "/students";
           }, 4000);
         }
       },
@@ -86,7 +86,7 @@ $(document).ready(() => {
         $(".before-send").addClass("d-none");
         $(".login-btn").removeClass("d-none");
         if (response.islogged) {
-          window.location = "/profile";
+          window.location = "/students";
         }
       },
       error: function (error) {
