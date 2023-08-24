@@ -93,3 +93,8 @@ const confirm = (message) => {
 };
 
 //****** REMOVE CLASS ****/
+const removeClass = (element, className) => {
+  $(element).each(function () {
+    $(this).removeClass(className);
+  });
+};
