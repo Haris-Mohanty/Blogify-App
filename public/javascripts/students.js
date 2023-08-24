@@ -307,100 +307,6 @@ const formatDate = (dateStr) => {
   return dd + "-" + mm + "-" + yy + " " + date.toLocaleTimeString();
 };
 
-//****** CHECK DATA IN LOCAL STORAGE *****/
-const checkInLocalStorage = (key) => {
-  if (localStorage.getItem(key) != null) {
-    let tmp = JSON.parse(localStorage.getItem(key));
-    return {
-      isExists: true,
-      data: tmp,
-    };
-  } else {
-    return {
-      isExists: false,
-    };
-  }
-};
-
-//**** AJAX REQUEST ******/
-const ajax = (request) => {
-  return new Promise((resolve, reject) => {
-    let options = {
-      type: request.type,
-      url: request.url,
-      beforeSend: () => {
-        if (request.isLoader) {
-          $(request.commonBtn).addClass("d-none");
-          $(request.loaderBtn).removeClass("d-none");
-        }
-      },
-      success: function (response) {
-        if (request.isLoader) {
-          $(request.commonBtn).removeClass("d-none");
-          $(request.loaderBtn).addClass("d-none");
-        }
-        resolve(response);
-      },
-      error: function (error) {
-        if (request.isLoader) {
-          $(request.commonBtn).removeClass("d-none");
-          $(request.loaderBtn).addClass("d-none");
-        }
-        reject(error);
-      },
-    };
-
-    if (request.type == "POST" || request.type == "PUT") {
-      options["data"] = request.data;
-      options["processData"] = false;
-      options["contentType"] = false;
-    }
-
-    if (request.type == "DELETE") {
-      options["data"] = request.data;
-    }
-
-    $.ajax(options);
-  });
-};
-
-//***** GET TOKEN FROM COOKIE *****/
-const getToken = (cookieName) => {
-  const allCookie = document.cookie;
-  let cookies = allCookie.split(";");
-  let cookieValue = "";
-  for (let cookie of cookies) {
-    let currentCookie = cookie.split("=");
-    if (currentCookie[0] == cookieName) {
-      cookieValue = currentCookie[1];
-    }
-  }
-  return cookieValue;
-};
-
-//******* SWAL CONFIRMATION *******/
-const confirm = (message) => {
-  return new Promise((resolve, reject) => {
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        resolve(true);
-        swal(`Poof! Your imaginary file has been ${message}!`, {
-          icon: "success",
-        });
-      } else {
-        reject(false);
-        swal("Your imaginary file is safe!");
-      }
-    });
-  });
-};
-
 //********* PAGINATION CODE *****/
 const getPaginationList = async () => {
   let i;
@@ -483,12 +389,6 @@ const controlPrevAndNext = (currentIndex) => {
     $("#next").attr("disabled", false);
     $("#prev").attr("disabled", true);
   }
-};
-
-const removeClass = (element, className) => {
-  $(element).each(function () {
-    $(this).removeClass(className);
-  });
 };
 
 //******** FILTER || SEARCH STUDENT (BY NAME, EMAIL, MOBILE) ******/
