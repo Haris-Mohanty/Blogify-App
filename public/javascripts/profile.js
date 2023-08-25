@@ -24,6 +24,7 @@ $(document).ready(function () {
 //***** SHOW COMPANY INFO *******/
 $(document).ready(() => {
   const token = getToken("authToken"); //student.js file(getToken)
-  const companyInfo = decodeToken(token); //common.js(decodeToken)
+  const companyObj = decodeToken(token); //common.js(decodeToken)
+  const companyInfo = companyObj.data.companyInfo;
   console.log(companyInfo);
 });
