@@ -30,3 +30,10 @@ $(document).ready(() => {
   $(".company-name").html(companyInfo.company);
   $(".company-mobile").html(companyInfo.mobile);
 });
+
+//******* UPLOAD COMPANY LOGO ******/
+$(document).ready(() => {
+  $(".logo-box").click(() => {
+    
+  });
+});
