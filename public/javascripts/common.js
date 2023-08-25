@@ -101,5 +101,6 @@ const removeClass = (element, className) => {
 
 //****** DECODE TOKEN *******/
 const decodeToken = (token) => {
-  return token;
+  let payload = atob(token.split(".")[1]);
+  return payload;
 };
