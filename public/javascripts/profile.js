@@ -33,6 +33,7 @@ $(document).ready(() => {
 
 //******* UPLOAD COMPANY LOGO ******/
 $(document).ready(() => {
+  $(".uploader").toast("show");
   $(".logo-box").click(() => {
     let imgType = [
       "image/png",
@@ -49,7 +50,7 @@ $(document).ready(() => {
       let file = this.files[0];
       if (imgType.indexOf(file.type) != -1) {
         const response = await uploadFileOnS3(file);
-        alert(response)
+        alert(response);
       } else {
         Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
       }
