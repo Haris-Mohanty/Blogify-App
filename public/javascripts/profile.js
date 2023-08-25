@@ -50,10 +50,14 @@ $(document).ready(() => {
       //show upload loader
       $(".uploader").removeClass("d-none");
       $(".uploader").toast("show");
-      
+
       if (imgType.indexOf(file.type) != -1) {
         const response = await uploadFileOnS3(file);
-        alert(response);
+        $(".logo-box").html("");
+        $(".logo-box").css({
+          backgroundImage: `url(${response})`,
+          backgroundSize: "cover",
+        });
       } else {
         Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
       }
