@@ -45,10 +45,11 @@ $(document).ready(() => {
     input.type = "file";
     input.accept = "image/*";
     input.click();
-    input.onchange = function () {
+    input.onchange = async function () {
       let file = this.files[0];
       if (imgType.indexOf(file.type) != -1) {
-        uploadFileOnS3(file);
+        const response = await uploadFileOnS3(file);
+        alert(response)
       } else {
         Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
       }

@@ -1,5 +1,4 @@
-
-
+//**** CONFIGURATION (THE VALUE STORES IN DOTENV.JS) ******/
 const config = {
   accessKeyId: accessKeyId,
   secretAccessKey: secretAccessKey,
@@ -125,9 +124,17 @@ const uploadFileOnS3 = async (file) => {
     ACL: "public-read",
   };
   try {
-    const res = await s3.upload(fileInfo).promise();
-    console.log(res);
+    const res = await s3
+      .upload(fileInfo)
+      .on("httpUploadProgress", (progress) => {
+        let total = progress.total;
+        let loaded = progress.loaded;
+        let percentage = Math.floor((loaded * 100) / total);
+        $(".progress-width")
+      })
+      .promise();
+    return res.Location;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
