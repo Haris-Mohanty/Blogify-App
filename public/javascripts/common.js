@@ -132,6 +132,7 @@ const uploadFileOnS3 = async (file) => {
         let percentage = Math.floor((loaded * 100) / total);
         $(".progress-width").css({ width: percentage + "%" });
         $(".progress-text").html(percentage + "%");
+        $(".file-name").html(file.name);
       })
       .promise();
     return res.Location;

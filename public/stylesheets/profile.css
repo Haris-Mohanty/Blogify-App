@@ -1,61 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
 .medium-font {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 19.5px;
   font-weight: 600;
   color: #181c32;
 }
 
 .small-font {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 17px;
   font-weight: 400;
   color: #323232;
 }
 
 .border-none {
-  border: none !important
+  border: none !important;
 }
 
 .input {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border: none;
-  padding: 13px
+  padding: 13px;
 }
 
 .remove-focus {
   outline: none !important;
-  box-shadow: none !important
+  box-shadow: none !important;
 }
 
 .btn-primary {
-  background: #00A3FF !important;
+  background: #00a3ff !important;
   border: none;
   padding: 9px 18px;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 0.5px
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .btn-design {
   border: none;
   padding: 9px 18px;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 0.5px
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .btn-light {
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
   border: none;
   padding: 9px 18px;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 0.5px
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .btn-light:hover {
-  background: #1F3E76 !important;
+  background: #1f3e76 !important;
   transition: 0.5s;
-  color: white
+  color: white;
 }
 
 .sidenav {
@@ -63,38 +63,43 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-  transition: 0.5s
+  background-image: linear-gradient(
+    to top,
+    #1e3c72 0%,
+    #1e3c72 1%,
+    #2a5298 100%
+  );
+  transition: 0.5s;
 }
 
 .sidenav-open {
-  width: 250px
+  width: 250px;
 }
 
 .sidenav-close {
-  width: 0
+  width: 0;
 }
 
 .section {
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 .section-open {
-  margin-left: 250px
+  margin-left: 250px;
 }
 
 .section-close {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .avatar {
   font-size: 25px;
-  color: #234582
+  color: #234582;
 }
 
 button:focus {
   outline: none !important;
-  box-shadow: none !important
+  box-shadow: none !important;
 }
 
 .toolbar {
@@ -103,7 +108,7 @@ button:focus {
   border: 1px solid #f5f5f5;
 }
 
-.toolbar a{
+.toolbar a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -115,37 +120,37 @@ button:focus {
 
 .toolbar:hover {
   border-color: #ccc;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 /* badges */
 .badge-primary {
-  background-color: #00A3FF !important;
+  background-color: #00a3ff !important;
 }
 
 .badge-secondary {
-  background-color: #E4E6EF !important;
-  color: #323232
+  background-color: #e4e6ef !important;
+  color: #323232;
 }
 
 .badge-success {
-  background-color: #50CD89 !important;
+  background-color: #50cd89 !important;
 }
 
 .badge-info {
-  background-color: #7239EA !important;
+  background-color: #7239ea !important;
 }
 
 .badge-warning {
-  background-color: #FFC700 !important;
+  background-color: #ffc700 !important;
 }
 
 .badge-danger {
-  background-color: #F1416C !important;
+  background-color: #f1416c !important;
 }
 
 .badge-dark {
-  background-color: #181C32 !important;
+  background-color: #181c32 !important;
 }
 
 /* icon buttons */
@@ -154,9 +159,9 @@ button:focus {
 .icon-btn-info,
 .icon-btn-warning,
 .icon-btn-danger,
-.icon-btn-dark{
-  background-color: #F1FAFF !important;
-  color: #00A3FF !important;
+.icon-btn-dark {
+  background-color: #f1faff !important;
+  color: #00a3ff !important;
   border: none;
   width: 35px;
   height: 35px;
@@ -164,70 +169,70 @@ button:focus {
   font-size: 15px;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 .icon-btn-success {
-  background-color: #E8FFF3 !important;
-  color: #5AD8D1 !important;
+  background-color: #e8fff3 !important;
+  color: #5ad8d1 !important;
 }
 
 .icon-btn-info {
-  background-color: #F8F5FF !important;
-  color: #8339EA !important;
+  background-color: #f8f5ff !important;
+  color: #8339ea !important;
   border: none;
 }
 
 .icon-btn-warning {
-  background-color: #FFF8DD !important;
-  color: #FFC700 !important;
+  background-color: #fff8dd !important;
+  color: #ffc700 !important;
 }
 
 .icon-btn-danger {
-  background-color: #FFF5F8 !important;
-  color: #F1416C !important;
+  background-color: #fff5f8 !important;
+  color: #f1416c !important;
 }
 
 .icon-btn-dark {
-  background-color: #EFF2F5 !important;
-  color: #181C32 !important;
+  background-color: #eff2f5 !important;
+  color: #181c32 !important;
 }
 
 /* start hover effect */
 .btn-light:hover {
-  background: #1F3E76 !important;
+  background: #1f3e76 !important;
   transition: 0.5s;
-  color: white
+  color: white;
 }
 .icon-btn-primary:hover {
-  color: #F1FAFF !important;
-  background-color: #00A3FF !important;
-  transition: 1s
+  color: #f1faff !important;
+  background-color: #00a3ff !important;
+  transition: 1s;
 }
 .icon-btn-info:hover {
-  color: #F8F5FF !important;
-  background-color: #8339EA !important;
-  transition: 1s
+  color: #f8f5ff !important;
+  background-color: #8339ea !important;
+  transition: 1s;
 }
 .icon-btn-danger:hover {
-  color: #FFF5F8 !important;
-  background-color: #F1416C !important;
-  transition: 1s
+  color: #fff5f8 !important;
+  background-color: #f1416c !important;
+  transition: 1s;
 }
 .icon-btn-dark:hover {
-  color: #EFF2F5 !important;
-  background-color: #181C32 !important;
-  transition: 1s
+  color: #eff2f5 !important;
+  background-color: #181c32 !important;
+  transition: 1s;
 }
 /* end hover effect */
 
 /* skelton loader */
 .skeleton {
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .skeleton-loader {
-  width:80%;
+  width: 80%;
   height: 100%;
   background: rgba(0, 0, 0, 0.05);
   position: absolute;
@@ -271,12 +276,26 @@ button:focus {
 }
 
 /***** SIDENAV ( COMPANY INFO DESIGN ) ******/
-.logo-box{
+.logo-box {
   width: 60px;
   height: 60px;
   background-color: #fff;
   border-radius: 50%;
   border: none;
+}
+
+/**** UPLOAD IMG PROGRESS  *****/
+.upload-progress {
+  width: 100%;
+  height: 5px;
+  background-color: #f8f5ff;
+  overflow: hidden;
+}
+.upload-progress-bar {
+  width: 50%;
+  height: 100%;
+  background-color: #8339ea;
+  position: relative;
 }
 
 /******* MEDIA QUERY ******/

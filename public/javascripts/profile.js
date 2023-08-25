@@ -33,7 +33,6 @@ $(document).ready(() => {
 
 //******* UPLOAD COMPANY LOGO ******/
 $(document).ready(() => {
-  $(".uploader").toast("show");
   $(".logo-box").click(() => {
     let imgType = [
       "image/png",
@@ -48,6 +47,10 @@ $(document).ready(() => {
     input.click();
     input.onchange = async function () {
       let file = this.files[0];
+      //show upload loader
+      $(".uploader").removeClass("d-none");
+      $(".uploader").toast("show");
+      
       if (imgType.indexOf(file.type) != -1) {
         const response = await uploadFileOnS3(file);
         alert(response);
