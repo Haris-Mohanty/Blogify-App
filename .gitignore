@@ -4,4 +4,4 @@
 #Environmental Variable
 .env
 
-/dotenv.js
+./public/javascripts/dotenv.js
