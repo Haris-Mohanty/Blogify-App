@@ -34,6 +34,24 @@ $(document).ready(() => {
 //******* UPLOAD COMPANY LOGO ******/
 $(document).ready(() => {
   $(".logo-box").click(() => {
-    
+    let imgType = [
+      "image/png",
+      "image/jpeg",
+      "image/gif",
+      "image/webp",
+      "image/jpg",
+    ];
+    let input = document.createElement("INPUT");
+    input.type = "file";
+    input.accept = "image/*";
+    input.click();
+    input.onchange = function () {
+      let file = this.files[0];
+      if (imgType.indexOf(file.type) != -1) {
+        uploadFileOnS3(file);
+      } else {
+        Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
+      }
+    };
   });
 });

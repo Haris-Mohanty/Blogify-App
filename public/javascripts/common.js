@@ -104,3 +104,8 @@ const decodeToken = (token) => {
   let payload = JSON.parse(atob(token.split(".")[1]));
   return payload;
 };
+
+//****** UPLOAD FILE ON S3 ******/
+const uploadFileOnS3 = (file) => {
+  console.log(file)
+};
