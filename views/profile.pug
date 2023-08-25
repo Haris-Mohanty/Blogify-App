@@ -24,8 +24,8 @@ html(lang="en")
                 ul.navbar-nav.w-100.justify-content-end
                     each menu of toolbar
                         li.nav-item    
-                            button.btn.toolbar.mx-2
-                                a.nav-link(href=menu.link) 
+                            button.btn.toolbar.mx-2(class=menu.design)
+                                a.nav-link(href=menu.link class=menu.design)
                                     i(class=menu.icon)
             div.mx-4.py-3
                 block content 
