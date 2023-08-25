@@ -9,7 +9,7 @@ html(lang="en")
     block loadScript
         title Profile Page
     body
-        - const toolbar = [{icon:"fa fa-user-secret", link:"/students"},{icon:"fas fa-users", link:"/teams"},{icon:"fa fa-sign-out-alt", link:"/logout"}]
+        - const toolbar = [ {icon:"fa fa-bell", link:"/notifications", design:"icon-btn-dark"},{icon:"fa fa-user-secret", link:"/students", design:"icon-btn-primary"},{icon:"fas fa-users", link:"/teams",design:"icon-btn-warning"},{icon:"fa fa-cog", link:"/settings", design:"icon-btn-info"} ,{icon:"fa fa-sign-out-alt", link:"/logout", design:"icon-btn-danger"}]
         div.sidenav.sidenav-open
             div.d-flex.flex-column.align-items-center 
                 button.logo-box.m-3.mt-3

@@ -270,6 +270,15 @@ button:focus {
   }
 }
 
+/***** SIDENAV ( COMPANY INFO DESIGN ) ******/
+.logo-box{
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+}
+
 /******* MEDIA QUERY ******/
 
 @media (max-width: 768px) {
