@@ -11,12 +11,12 @@ html(lang="en")
     body
         - const toolbar = [{icon:"fa fa-user-secret", link:"/students"},{icon:"fas fa-users", link:"/teams"},{icon:"fa fa-sign-out-alt", link:"/logout"}]
         div.sidenav.sidenav-open
-            div 
-                button 
+            div.d-flex.flex-column.align-items-center 
+                button.logo-box.m-3.mt-3
                     i.fa.fa-building(style="font-size:35px")
-                h5.company-name
-                p.company-email
-                p.company-mobile
+                h5.company-name.text-white.p-0.m-0
+                p.company-email.text-white
+                p.company-mobile.text-white
         div.section.section-open
             nav.navbar.navbar-expand-sm.px-3.py-3.bg-white.shadow-sm
                 button.btn.toggler
