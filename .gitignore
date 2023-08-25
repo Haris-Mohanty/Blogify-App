@@ -3,3 +3,5 @@
 
 #Environmental Variable
 .env
+
+/dotenv.js

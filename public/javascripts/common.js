@@ -1,29 +1,13 @@
-//****** DOTENV FILE ACCESS FROM SERVER ******/
+
+
 const config = {
-  accessKeyId: "AKIAWQGE3A5IOMXMLQVS",
-  secretAccessKey: "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",
-  region: "ap-south-1",
+  accessKeyId: accessKeyId,
+  secretAccessKey: secretAccessKey,
+  region: region,
   params: {
     Bucket: "docs.haris.com",
   },
 };
-// fetch("/config")
-//   .then((response) => response.json())
-//   .then((process) => {
-//     // Now you can use the config values on the client side
-//     //****** CONFIGURATION ****/
-//     config = {
-//       accessKeyId: process.accessKeyId,
-//       secretAccessKey: process.secretAccessKey,
-//       region: process.region,
-//       params: {
-//         Bucket: "docs.haris.com",
-//       },
-//     };
-//   })
-//   .catch((error) => {
-//     console.error("Error fetching config:", error);
-//   });
 const s3 = new AWS.S3(config);
 
 //****** CHECK DATA IN LOCAL STORAGE *****/
