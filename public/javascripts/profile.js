@@ -26,7 +26,7 @@ $(document).ready(() => {
   const token = getToken("authToken"); //student.js file(getToken)
   const companyObj = decodeToken(token); //common.js(decodeToken)
   const companyInfo = companyObj.data.companyInfo;
-  $("company-email").html(companyInfo.email);
-  $("company-name").html(companyInfo.name);
-  $("company-mobile").html(companyInfo.mobile);
+  $(".company-email").html(companyInfo.email);
+  $(".company-name").html(companyInfo.company);
+  $(".company-mobile").html(companyInfo.mobile);
 });
