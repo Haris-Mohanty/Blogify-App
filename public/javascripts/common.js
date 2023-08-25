@@ -98,3 +98,8 @@ const removeClass = (element, className) => {
     $(this).removeClass(className);
   });
 };
+
+//****** DECODE TOKEN *******/
+const decodeToken = (token) => {
+  return token;
+};

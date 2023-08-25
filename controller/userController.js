@@ -47,7 +47,10 @@ const createUser = async (req, res) => {
 const getUserPassword = async (req, res) => {
   const token = await tokenService.verifyToken(req);
   if (token.isVerified) {
-    const query = token.data;
+    const userData = token.data;
+    const query = {
+      uid: userData.uid,
+    };
     const dataRes = await dataBase.getRecordByQuery(query, "userSchema");
 
     if (dataRes.length > 0) {
