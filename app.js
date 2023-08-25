@@ -9,6 +9,18 @@ const multiPart = multer().none();
 
 const app = express();
 
+//**** DOT ENV ACCESS IN CLIENT SIDE ****/
+require("dotenv").config();
+app.get('/config', (req, res) => {
+  const config = {
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    region: process.env.REGION,
+  };
+  res.json(config);
+});
+
+
 const indexRoutes = require("./routes/indexRoutes");
 const signupRouter = require("./routes/signupRoutes");
 const loginRouter = require("./routes/loginRoutes");
