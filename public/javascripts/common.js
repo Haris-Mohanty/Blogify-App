@@ -133,6 +133,9 @@ const uploadFileOnS3 = async (file) => {
         $(".progress-width").css({ width: percentage + "%" });
         $(".progress-text").html(percentage + "%");
         $(".file-name").html(file.name);
+
+        //calculate size of img
+        let totalSize = 
       })
       .promise();
     return res.Location;
