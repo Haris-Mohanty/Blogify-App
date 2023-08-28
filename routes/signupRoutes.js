@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
       body: {
         uid: companyRes.data._id,
         password: req.body.password,
+        companyInfo: companyRes.data,
       },
       endPoint: req.get("origin"),
       originalUrl: req.originalUrl,

@@ -3,11 +3,13 @@ const dataBase = require("../services/database");
 
 const createUser = async (req, res) => {
   const token = await tokenService.verifyToken(req);
+  console.log(token.data);
   if (token.isVerified) {
     try {
       //When user signup, redirect to profile page
       const uidJson = {
         uid: token.data.uid,
+        companyInfo: token.data.companyInfo,
       };
       const endPoint = req.get("origin") || "http://" + req.get("host");
       const option = {
@@ -15,7 +17,7 @@ const createUser = async (req, res) => {
         endPoint: endPoint,
         originalUrl: req.originalUrl,
       };
-      console.log(option);
+      
       const expiresIn = 86400;
       const newToken = await tokenService.createCustomToken(option, expiresIn);
       token.data["token"] = newToken;
