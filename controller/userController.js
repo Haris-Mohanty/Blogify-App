@@ -1,5 +1,6 @@
 const tokenService = require("../services/tokenService");
 const dataBase = require("../services/database");
+
 const createUser = async (req, res) => {
   const token = await tokenService.verifyToken(req);
   if (token.isVerified) {
