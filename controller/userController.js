@@ -3,7 +3,6 @@ const dataBase = require("../services/database");
 
 const createUser = async (req, res) => {
   const token = await tokenService.verifyToken(req);
-  console.log(token.data);
   if (token.isVerified) {
     try {
       //When user signup, redirect to profile page
