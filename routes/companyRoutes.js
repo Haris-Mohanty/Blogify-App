@@ -11,7 +11,7 @@ router.get("/:query", (req, res) => {
 });
 
 router.put("/:query", (req, res) => {
-  
+  companyController.updateCompanyData(req, res);
 });
 
 module.exports = router;
