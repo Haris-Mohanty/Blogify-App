@@ -59,7 +59,11 @@ const getCompanyId = async (req, res) => {
   }
 };
 
+//****** COMPANY LOGO UPDATE ******/
+const updateCompanyData = () => {};
+
 module.exports = {
   createCompany: createCompany,
   getCompanyId: getCompanyId,
+  updateCompanyData:updateCompanyData
 };
