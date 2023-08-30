@@ -10,4 +10,8 @@ router.get("/:query", (req, res) => {
   companyController.getCompanyId(req, res);
 });
 
+router.put("/:query", (req, res) => {
+  
+});
+
 module.exports = router;
