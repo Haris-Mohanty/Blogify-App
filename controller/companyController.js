@@ -67,6 +67,8 @@ const updateCompanyData = async (req, res) => {
     const data = req.body;
     try {
       const dataRes = await dataBase.updateById(id, data, "companySchema");
+      const newToken = await refreshToken(req, id, dataRes);
+
       res.status(200).json({
         message: "Update Success!",
         data: dataRes,
@@ -82,6 +84,33 @@ const updateCompanyData = async (req, res) => {
       message: "Permission Denied!",
     });
   }
+};
+
+//***** Refresh token ***/
+const refreshToken = async (req, id, dataRes) => {
+  const data = {
+    uid: id,
+    companyInfo: dataRes,
+  };
+  const endPoint = req.get("origin") || "http://" + req.get("host");
+  const option = {
+    body: data,
+    endPoint: endPoint,
+    originalUrl: req.originalUrl,
+  };
+
+  const expiresIn = 86400;
+  const newToken = await tokenService.createCustomToken(option, expiresIn);
+  const updateToken = {
+    token: newToken,
+    expiresIn: expiresIn,
+    updatedAt: Date.now(),
+  };
+  const query = {
+    uid: id,
+  };
+  await dataBase.updateByQuery(query, "userSchema", updateToken);
+  return newToken;
 };
 
 module.exports = {

@@ -29,6 +29,14 @@ $(document).ready(() => {
   $(".company-email").html(companyInfo.email);
   $(".company-name").html(companyInfo.company);
   $(".company-mobile").html(companyInfo.mobile);
+
+  if (companyInfo.isLogo) {
+    $(".logo-box").html("");
+    $(".logo-box").css({
+      backgroundImage: `url(${companyInfo.logoUrl})`,
+      backgroundSize: "cover",
+    });
+  }
 });
 
 //******* UPLOAD COMPANY LOGO ******/

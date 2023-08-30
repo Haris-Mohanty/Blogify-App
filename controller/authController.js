@@ -1,7 +1,7 @@
 const tokenService = require("../services/tokenService");
 const dataBase = require("../services/database");
 
-//Refresh token
+//***** Refresh token ***/
 const refreshToken = async (uid, req) => {
   const endPoint = req.get("origin") || "http://" + req.get("host");
   const option = {
