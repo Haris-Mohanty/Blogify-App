@@ -52,15 +52,20 @@ $(document).ready(() => {
       $(".uploader").toast("show");
 
       if (imgType.indexOf(file.type) != -1) {
-        const response = await uploadFileOnS3(file);
-        $(".logo-box").html("");
-        $(".logo-box").css({
-          backgroundImage: `url(${response})`,
-          backgroundSize: "cover",
-        });
+        const objectUrl = await uploadFileOnS3(file);
+        $(".logo-box").html("Waiting...");
+        await updateLogoUrl(objectUrl);
+
+        // $(".logo-box").css({
+        //   backgroundImage: `url(${response})`,
+        //   backgroundSize: "cover",
+        // });
       } else {
         Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
       }
     };
   });
 });
+
+//UPDATE LOGO URL
+const updateLogoUrl = () => {};
