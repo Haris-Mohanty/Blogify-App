@@ -12,7 +12,13 @@ const companySchema = new mongoose.Schema({
   mobile: Number,
   emailVerified: {
     type: Boolean,
+    default: false,
   },
+  isLogo: {
+    type: Boolean,
+    default: false,
+  },
+  logoUrl: String,
   createdAt: {
     type: Date,
     default: Date.now,
