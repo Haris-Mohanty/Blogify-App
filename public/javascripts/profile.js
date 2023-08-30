@@ -68,4 +68,25 @@ $(document).ready(() => {
 });
 
 //UPDATE LOGO URL
-const updateLogoUrl = () => {};
+const updateLogoUrl = async (url) => {
+  const token = getToken("authToken");
+  const company = decodeToken(token);
+  const id = company.data.uid;
+
+  let formData = new FormData();
+  formData.append("isLogo", true);
+  formData.append("logoUrl", url);
+  formData.append("token", token);
+
+  const request = {
+    type: "PUT",
+    url: "/api/private/company/" + id,
+    data: formData,
+  };
+  try {
+    const response = await ajax(request);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};

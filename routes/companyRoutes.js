@@ -9,4 +9,5 @@ router.post("/", (req, res) => {
 router.get("/:query", (req, res) => {
   companyController.getCompanyId(req, res);
 });
+
 module.exports = router;
