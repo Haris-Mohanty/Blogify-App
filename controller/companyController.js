@@ -97,7 +97,7 @@ const refreshToken = async (req, id, dataRes) => {
   const option = {
     body: data,
     endPoint: endPoint,
-    originalUrl: req.originalUrl,
+    originalUrl: "/api/private/company",
   };
 
   const expiresIn = 86400;
