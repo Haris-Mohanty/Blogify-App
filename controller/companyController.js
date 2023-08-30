@@ -68,6 +68,7 @@ const updateCompanyData = async (req, res) => {
     try {
       const dataRes = await dataBase.updateById(id, data, "companySchema");
       const newToken = await refreshToken(req, id, dataRes);
+      res.cookie("authToken", newToken, { maxAge: 86400 * 1000 });
 
       res.status(200).json({
         message: "Update Success!",
