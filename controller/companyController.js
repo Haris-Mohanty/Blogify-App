@@ -60,10 +60,32 @@ const getCompanyId = async (req, res) => {
 };
 
 //****** COMPANY LOGO UPDATE ******/
-const updateCompanyData = () => {};
+const updateCompanyData = async (req, res) => {
+  const token = await tokenService.verifyToken(req);
+  if (token.isVerified) {
+    const id = req.params.id;
+    const data = req.body;
+    try {
+      const dataRes = await dataBase.updateById(id, data, "companySchema");
+      res.status(200).json({
+        message: "Update Success!",
+        data: dataRes,
+      });
+    } catch (err) {
+      res.status(424).json({
+        message: "Update Failed!",
+        err,
+      });
+    }
+  } else {
+    res.status(401).json({
+      message: "Permission Denied!",
+    });
+  }
+};
 
 module.exports = {
   createCompany: createCompany,
   getCompanyId: getCompanyId,
-  updateCompanyData:updateCompanyData
+  updateCompanyData: updateCompanyData,
 };

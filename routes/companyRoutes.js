@@ -11,7 +11,7 @@ router.get("/:query", (req, res) => {
 });
 
 //****** COMPANY LOGO UPDATE ******/
-router.put("/:query", (req, res) => {
+router.put("/:id", (req, res) => {
   companyController.updateCompanyData(req, res);
 });
 
