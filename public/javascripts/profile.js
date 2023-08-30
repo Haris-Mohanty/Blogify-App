@@ -54,12 +54,15 @@ $(document).ready(() => {
       if (imgType.indexOf(file.type) != -1) {
         const objectUrl = await uploadFileOnS3(file);
         $(".logo-box").html("Waiting...");
-        await updateLogoUrl(objectUrl);
 
-        // $(".logo-box").css({
-        //   backgroundImage: `url(${response})`,
-        //   backgroundSize: "cover",
-        // });
+        const isUpdated = await updateLogoUrl(objectUrl);
+        if (isUpdated) {
+          $(".logo-box").html("");
+          $(".logo-box").css({
+            backgroundImage: `url(${objectUrl})`,
+            backgroundSize: "cover",
+          });
+        }
       } else {
         Snowball("Only Image Accepted!", "Please Upload Image!", "warning");
       }
@@ -84,9 +87,9 @@ const updateLogoUrl = async (url) => {
     data: formData,
   };
   try {
-    const response = await ajax(request);
-    console.log(response);
+    await ajax(request);
+    return true;
   } catch (error) {
-    console.log(error);
+    return false;
   }
 };
