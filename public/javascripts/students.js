@@ -209,6 +209,7 @@ const studentAction = () => {
       };
       try {
         const res = await ajax(request);
+        $("#share-modal").modal("hide");
         console.log(res);
       } catch (err) {
         console.log(err);
