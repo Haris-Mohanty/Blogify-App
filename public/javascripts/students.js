@@ -183,6 +183,11 @@ const studentAction = () => {
     $("#share-email-btn").click(async function () {
       const studentEmail = this.getAttribute("data-email");
       const token = getToken("authToken");
+      const tokenData = decodeToken(token);
+      const company = tokenData.data.companyInfo;
+      
+      console.log(tokenData);
+      return false;
       let formData = new FormData();
       formData.append("token", token);
       formData.append("subject", "Share Link!");
