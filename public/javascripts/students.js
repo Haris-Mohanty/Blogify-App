@@ -185,14 +185,20 @@ const studentAction = () => {
       const token = getToken("authToken");
       const tokenData = decodeToken(token);
       const company = tokenData.data.companyInfo;
-      
-      console.log(tokenData);
-      return false;
+
+      const receipt = {
+        to: studentEmail,
+        subject: "Share Link!",
+        message: "Thank You!",
+        companyName: company.company,
+        companyEmail: company.email,
+        companyMobile: company.mobile,
+        companyLogo: company.logoUrl,
+        inviationLink: $(".link").val(),
+      };
       let formData = new FormData();
       formData.append("token", token);
-      formData.append("subject", "Share Link!");
-      formData.append("message", $(".link").val());
-      formData.append("to", studentEmail);
+      formData.append("receipt", JSON.stringify(receipt));
       const request = {
         type: "POST",
         url: "/sendMail",

@@ -12,7 +12,7 @@ const sendEmail = async (req, res) => {
   //verify token
   const token = await tokenService.verifyToken(req);
   if (token.isVerified) {
-    let data = req.body;
+    let data = JSON.parse(req.body.receipt);
 
     //
     const emailInfo = {
@@ -29,9 +29,7 @@ const sendEmail = async (req, res) => {
             Charset: "UTF-8",
             Data: pug.renderFile(
               "C:/Users/haris/Desktop/Blogify App/views/email-template.pug",
-              {
-                link:data.message
-              }
+              data
             ),
           },
         },
