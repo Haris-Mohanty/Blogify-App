@@ -38,9 +38,9 @@ const countData = async (schema) => {
 };
 
 //****** PAGINATE (SHOW STUDENT DETAILS) ********/
-const paginateData = async (from, to, schema) => {
+const paginateData = async (query, from, to, schema) => {
   const currentSchema = schemaList[schema];
-  const dataRes = await currentSchema.find().skip(from).limit(to);
+  const dataRes = await currentSchema.find(query).skip(from).limit(to);
   return dataRes;
 };
 

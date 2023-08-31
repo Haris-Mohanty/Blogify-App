@@ -48,10 +48,19 @@ const countStudent = async (req, res) => {
 const paginate = async (req, res) => {
   //Token Verify
   const tokenData = await tokenService.verifyToken(req);
+
   if (tokenData.isVerified) {
     let from = Number(req.params.from);
     let to = Number(req.params.to);
-    const dataRes = await dataBase.paginateData(from, to, "studentSchema");
+    const query = {
+      companyId: tokenData.data.uid,
+    };
+    const dataRes = await dataBase.paginateData(
+      query,
+      from,
+      to,
+      "studentSchema"
+    );
     res.status(200).json({
       data: dataRes,
     });
