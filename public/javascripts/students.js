@@ -203,6 +203,9 @@ const studentAction = () => {
         type: "POST",
         url: "/sendMail",
         data: formData,
+        isLoader: true,
+        commonBtn: ".tmp",
+        loaderBtn: ".progress-loader",
       };
       try {
         const res = await ajax(request);
