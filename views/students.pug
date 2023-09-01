@@ -17,10 +17,10 @@ include profile
                     div.col-md-5
                     div.col-md-4.d-flex.justify-content-between.align-items-center
                         div.dropdown
-                            button.dropdown-toggle.btn.btn-light.mx-4 Export
+                            button.dropdown-toggle.btn.btn-light.mx-4(data-bs-toggle="dropdown") Export
                             div.dropdown-menu
-                                a(href="") 
-                                a(href="") 
+                                a.dropdown-item(href="#") Current 
+                                a.dropdown-item(href="#") All 
                         button.btn.btn-primary(data-bs-toggle="modal" data-bs-target="#student-modal") Add Students
                 div.table-responsive
                     table.table.my-4
