@@ -435,13 +435,31 @@ $(document).ready(() => {
 
 //********* EXPORT DATA INTO PDF ********/
 $(Document).ready(() => {
-  $("#current").click(function (e) {
+  $("#current").click(async function (e) {
     e.preventDefault();
     let currentStudents = sessionStorage.getItem("current-student");
     if (currentStudents != null) {
-      alert("Done")
-    }else{
-      
+      //
+      const students = JSON.parse(currentStudents);
+
+      let token = getToken("authToken");
+      let formData = new FormData();
+      formData.append("data", students);
+      formData.append("token", token);
+
+      const request = {
+        type: "POST",
+        url: "/export-to-pdf",
+        data: formData,
+      };
+      try {
+        let response = await ajax(request);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      swal("Not Found!", "Students Found Error!", "error");
     }
   });
 });
