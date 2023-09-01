@@ -454,7 +454,11 @@ $(Document).ready(() => {
       };
       try {
         let response = await ajax(request);
-        console.log(response);
+        const downloadReq = {
+          type: "GET",
+          url: "/exports/new.pdf",
+        };
+        ajaxDownloader(downloadReq);
       } catch (error) {
         console.log(error);
       }

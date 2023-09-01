@@ -145,3 +145,6 @@ const uploadFileOnS3 = async (file) => {
     return err;
   }
 };
+
+//****** DOWNLOAD PDF ******/
+const ajaxDownloader = () => {};
