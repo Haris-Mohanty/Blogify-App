@@ -1,6 +1,12 @@
 const tokenService = require("../services/tokenService");
-const pdf = (req, res) => {
-  let token = tokenService.verifyToken(req);
+const pdf = async (req, res) => {
+  let token = await tokenService.verifyToken(req);
+  if (token.isVerified) {
+  } else {
+    res.status(401).json({
+      message: "Permission Denied at PDF!",
+    });
+  }
 };
 
 module.exports = {

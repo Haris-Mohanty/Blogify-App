@@ -19,6 +19,7 @@
     "mongoose": "^7.3.4",
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
+    "pdfkit-table": "^0.1.99",
     "pug": "^3.0.2",
     "supertest": "^6.3.3"
   }
