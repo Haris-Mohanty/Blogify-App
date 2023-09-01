@@ -20,6 +20,7 @@ const authController = require("./controller/authController");
 const logoutRoutes = require("./routes/logoutRoutes");
 const studentsRoutes = require("./routes/studentsRoutes");
 const sendMailRoutes = require("./routes/sendMailRoutes");
+const exportRoutes = require("./routes/exportRoutes");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
