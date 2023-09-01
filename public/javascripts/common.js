@@ -147,4 +147,14 @@ const uploadFileOnS3 = async (file) => {
 };
 
 //****** DOWNLOAD PDF ******/
-const ajaxDownloader = () => {};
+const ajaxDownloader = (request) => {
+  return $.ajax({
+    type: request.type,
+    url: request.url,
+    xhr: function () {
+      let xml = new XMLHttpRequest();
+      xml.responseType = "blob";
+      return xml;
+    },
+  }).promise();
+};

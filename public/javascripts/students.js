@@ -458,7 +458,13 @@ $(Document).ready(() => {
           type: "GET",
           url: "/exports/new.pdf",
         };
-        ajaxDownloader(downloadReq);
+        const pdfRes = await ajaxDownloader(downloadReq);
+        const pdfUrl = URL.createObjectURL(pdfRes);
+        const a = document.createElement("a");
+        a.href = pdfUrl;
+        a.download = "Student Data.pdf";
+        a.click();
+        a.remove();
       } catch (error) {
         console.log(error);
       }
