@@ -70,6 +70,7 @@ app.use("/logout", logoutRoutes);
 app.use("/students", studentsRoutes);
 app.use("/profile", authLogger(), profileRouter);
 app.use("/sendMail", sendMailRoutes);
+app.use("/export-to-pdf", exportRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
