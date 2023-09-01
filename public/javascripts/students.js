@@ -83,7 +83,11 @@ const showStudents = async (from, to) => {
     loaderBtn: ".students-skeleton",
   };
   const response = await ajax(request);
+  let currentStudents = JSON.stringify(response.data);
   if (response.data.length > 0) {
+    //data store in session storage for pdf export
+    sessionStorage.setItem("current-student", currentStudents);
+
     for (let student of response.data) {
       let tr = dynamicTR(student);
       $(".student-list").append(tr);
@@ -431,5 +435,8 @@ $(document).ready(() => {
 
 //********* EXPORT DATA INTO PDF ********/
 $(Document).ready(() => {
-  $("#current").
+  $("#current").click(function (e) {
+    e.preventDefault();
+    alert();
+  });
 });
