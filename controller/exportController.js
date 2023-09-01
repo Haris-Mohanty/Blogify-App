@@ -18,7 +18,12 @@ const pdf = async (req, res) => {
     doc.text("Students Data!");
 
     //End pdfkit
-    doc.end()
+    doc.end();
+
+    //Response
+    res.status(200).json({
+      message: "Success",
+    });
   } else {
     res.status(401).json({
       message: "Permission Denied at PDF!",
