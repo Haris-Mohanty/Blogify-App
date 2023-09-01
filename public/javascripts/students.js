@@ -428,3 +428,8 @@ $(document).ready(() => {
     });
   });
 });
+
+//********* EXPORT DATA INTO PDF ********/
+$(Document).ready(() => {
+  $("#current").
+});
