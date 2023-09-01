@@ -437,6 +437,11 @@ $(document).ready(() => {
 $(Document).ready(() => {
   $("#current").click(function (e) {
     e.preventDefault();
-    alert();
+    let currentStudents = sessionStorage.getItem("current-student");
+    if (currentStudents != null) {
+      alert("Done")
+    }else{
+      
+    }
   });
 });
