@@ -94,6 +94,10 @@ const pdf = async (req, res) => {
   }
 };
 
+//******** DELETE PDF *******/
+const deletePdf = async (req,res) => {};
+
 module.exports = {
   pdf: pdf,
+  deletePdf:deletePdf
 };
