@@ -8,8 +8,7 @@ const pdf = async (req, res) => {
   const pdfFile = "public/exports/" + random + ".pdf";
   const commingData = req.body;
   const pdfData = JSON.parse(commingData.data);
-  console.log(pdfData);
-
+  
   //Token verification
   let token = await tokenService.verifyToken(req);
   if (token.isVerified) {
@@ -21,9 +20,44 @@ const pdf = async (req, res) => {
 
     //Create table
     const table = {
-      headers: [],
+      headers: [
+        {
+          label: "Name",
+          property: "name",
+        },
+        {
+          label: "Email",
+          property: "email",
+        },
+        {
+          label: "FName",
+          property: "father",
+        },
+        {
+          label: "Mobile",
+          property: "mobile",
+        },
+        {
+          label: "Address",
+          property: "address",
+        },
+        {
+          label: "Joined At",
+          property: "joinedAt",
+        },
+      ],
       datas: [],
     };
+    for (let data of pdfData) {
+      table.datas.push({
+        name: data.studentName,
+        email: data.studentEmail,
+        father: data.studentFather,
+        mobile: data.studentMobile,
+        address: data.studentAddress,
+        joinedAt: data.createdAt,
+      });
+    }
 
     //path
     doc.pipe(fs.createWriteStream(pdfFile));
