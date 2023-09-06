@@ -19,11 +19,17 @@ const pdf = async (req, res) => {
       page: "A4",
     });
 
+    //Create table
+    const table = {
+      headers: [],
+      datas: [],
+    };
+
     //path
     doc.pipe(fs.createWriteStream(pdfFile));
 
     //Data in pdf
-    doc.text("Students Data!");
+    doc.table(table);
 
     //End pdfkit
     doc.end();
