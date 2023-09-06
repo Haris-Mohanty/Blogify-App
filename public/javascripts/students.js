@@ -475,7 +475,7 @@ $(Document).ready(() => {
 //***** DELETE PDF *******/
 const deletePdf = async (filename) => {
   const token = getToken("authToken");
-  const request={
-    
-  }
+  const request = {
+    type: "DELETE",
+  };
 };
