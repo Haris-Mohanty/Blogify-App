@@ -439,9 +439,6 @@ $(Document).ready(() => {
     e.preventDefault();
     let currentStudents = sessionStorage.getItem("current-student");
     if (currentStudents != null) {
-      //
-      const students = JSON.parse(currentStudents);
-
       let token = getToken("authToken");
       let formData = new FormData();
       formData.append("data", currentStudents);
@@ -456,15 +453,16 @@ $(Document).ready(() => {
         let response = await ajax(request);
         const downloadReq = {
           type: "GET",
-          url: "/exports/new.pdf",
+          url: "/exports/" + response.filename,
         };
         const pdfRes = await ajaxDownloader(downloadReq);
         const pdfUrl = URL.createObjectURL(pdfRes);
         const a = document.createElement("a");
         a.href = pdfUrl;
-        a.download = "Student Data.pdf";
+        a.download = response.filename;
         a.click();
         a.remove();
+        deletePdf();
       } catch (error) {
         console.log(error);
       }
@@ -473,3 +471,6 @@ $(Document).ready(() => {
     }
   });
 });
+
+//***** DELETE PDF *******/
+const deletePdf = () => {};

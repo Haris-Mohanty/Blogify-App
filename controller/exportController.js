@@ -11,7 +11,7 @@ const pdf = async (req, res) => {
 
   //Token verification
   let token = await tokenService.verifyToken(req);
-  const company = token.data.commingInfo;
+  const company = token.data.companyInfo;
   if (token.isVerified) {
     //Create pdf
     const doc = new pdfKit({
@@ -65,10 +65,16 @@ const pdf = async (req, res) => {
     //path
     doc.pipe(fs.createWriteStream(pdfFile));
 
+    //Add font size
+    doc.fontSize(20);
+
     //Add header
     doc.text(company.company, {
       align: "center",
     });
+
+    //Add some space(Margin)
+    doc.moveDown(2);
 
     //Data in pdf
     doc.table(table);
@@ -79,6 +85,7 @@ const pdf = async (req, res) => {
     //Response
     res.status(200).json({
       message: "Success",
+      filename: random + ".pdf",
     });
   } else {
     res.status(401).json({
