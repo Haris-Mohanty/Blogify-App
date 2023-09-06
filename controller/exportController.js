@@ -1,8 +1,16 @@
 const tokenService = require("../services/tokenService");
 const pdfKit = require("pdfkit-table");
 const fs = require("fs");
+const crypto = require("crypto");
+const random = crypto.randomBytes(4).toString("hex");
 
 const pdf = async (req, res) => {
+  const pdfFile = "public/exports/" + random + ".pdf";
+  const commingData = req.body;
+  const pdfData = JSON.parse(commingData.data);
+  console.log(pdfData);
+
+  //Token verification
   let token = await tokenService.verifyToken(req);
   if (token.isVerified) {
     //Create pdf
@@ -12,7 +20,7 @@ const pdf = async (req, res) => {
     });
 
     //path
-    doc.pipe(fs.createWriteStream("public/exports/new.pdf"));
+    doc.pipe(fs.createWriteStream(pdfFile));
 
     //Data in pdf
     doc.text("Students Data!");

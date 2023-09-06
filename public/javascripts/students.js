@@ -444,7 +444,7 @@ $(Document).ready(() => {
 
       let token = getToken("authToken");
       let formData = new FormData();
-      formData.append("data", students);
+      formData.append("data", currentStudents);
       formData.append("token", token);
 
       const request = {
