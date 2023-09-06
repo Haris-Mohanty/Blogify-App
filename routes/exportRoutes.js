@@ -6,4 +6,7 @@ router.post("/", (req, res) => {
   exportController.pdf(req, res);
 });
 
+//Delete pdf
+router.delete("/", (req, res) => {});
+
 module.exports = router;
