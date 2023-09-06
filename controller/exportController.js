@@ -8,9 +8,10 @@ const pdf = async (req, res) => {
   const pdfFile = "public/exports/" + random + ".pdf";
   const commingData = req.body;
   const pdfData = JSON.parse(commingData.data);
-  
+
   //Token verification
   let token = await tokenService.verifyToken(req);
+  const company = token.data.commingInfo;
   if (token.isVerified) {
     //Create pdf
     const doc = new pdfKit({
@@ -20,6 +21,8 @@ const pdf = async (req, res) => {
 
     //Create table
     const table = {
+      title: "Students Data",
+
       headers: [
         {
           label: "Name",
@@ -61,6 +64,9 @@ const pdf = async (req, res) => {
 
     //path
     doc.pipe(fs.createWriteStream(pdfFile));
+
+    //Add header
+    doc.text();
 
     //Data in pdf
     doc.table(table);
