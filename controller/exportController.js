@@ -66,7 +66,9 @@ const pdf = async (req, res) => {
     doc.pipe(fs.createWriteStream(pdfFile));
 
     //Add header
-    doc.text();
+    doc.text(company.company, {
+      align: "center",
+    });
 
     //Data in pdf
     doc.table(table);
