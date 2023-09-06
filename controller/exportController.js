@@ -95,9 +95,22 @@ const pdf = async (req, res) => {
 };
 
 //******** DELETE PDF *******/
-const deletePdf = async (req,res) => {};
+const deletePdf = async (req, res) => {
+  const token = await tokenService.verifyToken(req);
+  if (token.isVerified) {
+    let filename = "public/exports/" + req.params.filename;
+    fs.unlinkSync(filename);
+    res.status(200).json({
+      message: "Deleted Successfully!",
+    });
+  } else {
+    res.status(401).json({
+      message: "Permission Denied at Delete PDF!",
+    });
+  }
+};
 
 module.exports = {
   pdf: pdf,
-  deletePdf:deletePdf
+  deletePdf: deletePdf,
 };
