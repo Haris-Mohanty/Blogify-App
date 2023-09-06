@@ -462,7 +462,7 @@ $(Document).ready(() => {
         a.download = response.filename;
         a.click();
         a.remove();
-        deletePdf();
+        deletePdf(response.filename);
       } catch (error) {
         console.log(error);
       }
@@ -473,4 +473,9 @@ $(Document).ready(() => {
 });
 
 //***** DELETE PDF *******/
-const deletePdf = () => {};
+const deletePdf = async (filename) => {
+  const token = getToken("authToken");
+  const request={
+    
+  }
+};
