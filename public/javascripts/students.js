@@ -488,5 +488,8 @@ const deletePdf = async (filename) => {
 
 //******* GET ALL STUDENT *******/
 $(document).ready(() => {
-  
+  $("#all").click(function (e) {
+    e.preventDefault();
+    const token = getToken("authToken");
+  });
 });
