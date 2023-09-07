@@ -11,8 +11,8 @@ router.get("/count-all", (req, res) => {
 });
 
 //***** GET ALL STUDENTS DATA *****/
-router.get("/all", (req, res) => {
-  
+router.get("/all/:companyId", (req, res) => {
+  studentsController.allStudents(req, res);
 });
 
 //***** PAGINATE *****/
