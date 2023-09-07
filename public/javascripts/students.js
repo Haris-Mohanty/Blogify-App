@@ -482,5 +482,6 @@ const deletePdf = async (filename) => {
       token: token,
     },
   };
-  await ajax(request);
+  const res = await ajax(request);
+  console.log(res);
 };

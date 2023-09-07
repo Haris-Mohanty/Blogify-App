@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
 });
 
 //Delete pdf
-router.delete("/filename", (req, res) => {
+router.delete("/:filename", (req, res) => {
   exportController.deletePdf(req, res);
 });
 

@@ -10,6 +10,11 @@ router.get("/count-all", (req, res) => {
   studentsController.countStudent(req, res);
 });
 
+//***** GET ALL STUDENTS DATA *****/
+router.get("/all", (req, res) => {
+  
+});
+
 //***** PAGINATE *****/
 router.get("/:from/:to", (req, res) => {
   studentsController.paginate(req, res);
