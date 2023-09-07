@@ -491,5 +491,7 @@ $(document).ready(() => {
   $("#all").click(function (e) {
     e.preventDefault();
     const token = getToken("authToken");
+    const company = decodeToken(token);
+    console.log(company);
   });
 });
