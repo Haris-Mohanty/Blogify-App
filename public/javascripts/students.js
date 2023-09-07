@@ -488,10 +488,16 @@ const deletePdf = async (filename) => {
 
 //******* GET ALL STUDENT *******/
 $(document).ready(() => {
-  $("#all").click(function (e) {
+  $("#all").click( async function (e) {
     e.preventDefault();
     const token = getToken("authToken");
     const company = decodeToken(token);
-    console.log(company);
+    const companyId = company.data.companyInfo._id;
+    const req = {
+      type: "GET",
+      url: "/students/all/" + companyId,
+    };
+    const res = await ajax(req)
+    console.log(res)
   });
 });
