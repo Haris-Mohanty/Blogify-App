@@ -485,3 +485,8 @@ const deletePdf = async (filename) => {
   const res = await ajax(request);
   console.log(res);
 };
+
+//******* GET ALL STUDENT *******/
+$(document).ready(() => {
+  
+});
