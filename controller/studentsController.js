@@ -107,10 +107,16 @@ const updateStudents = async (req, res) => {
   }
 };
 
+//******* GET ALL STUDENTS *******/
+const allStudents = async (req,res) => {
+  
+};
+
 module.exports = {
   create: create,
   countStudent: countStudent,
   paginate: paginate,
   deleteStudents: deleteStudents,
   updateStudents: updateStudents,
+  allStudents: allStudents,
 };
