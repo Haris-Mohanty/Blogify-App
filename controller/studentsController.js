@@ -108,8 +108,8 @@ const updateStudents = async (req, res) => {
 };
 
 //******* GET ALL STUDENTS *******/
-const allStudents = async (req,res) => {
-  
+const allStudents = async (req, res) => {
+  const tokenData = await tokenService.verifyToken(req);
 };
 
 module.exports = {
