@@ -498,6 +498,6 @@ $(document).ready(() => {
       url: "/students/all/" + companyId,
     };
     const res = await ajax(req)
-    console.log(res)
+    
   });
 });
