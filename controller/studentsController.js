@@ -110,6 +110,19 @@ const updateStudents = async (req, res) => {
 //******* GET ALL STUDENTS *******/
 const allStudents = async (req, res) => {
   const tokenData = await tokenService.verifyToken(req);
+  if (tokenData.isVerified) {
+    const query = {
+      companyId: req.params.companyId,
+    };
+    const dataRes = await dataBase.getRecordByQuery(query, "studentSchema");
+    res.status(200).json({
+      data: dataRes,
+    });
+  } else {
+    res.status(401).json({
+      message: "Error in get all student API!",
+    });
+  }
 };
 
 module.exports = {
