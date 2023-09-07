@@ -2,9 +2,9 @@ const tokenService = require("../services/tokenService");
 const pdfKit = require("pdfkit-table");
 const fs = require("fs");
 const crypto = require("crypto");
-const random = crypto.randomBytes(4).toString("hex");
 
 const pdf = async (req, res) => {
+  const random = crypto.randomBytes(4).toString("hex");
   const pdfFile = "public/exports/" + random + ".pdf";
   const commingData = req.body;
   const pdfData = JSON.parse(commingData.data);

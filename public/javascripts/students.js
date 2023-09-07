@@ -477,7 +477,7 @@ const deletePdf = async (filename) => {
   const token = getToken("authToken");
   const request = {
     type: "DELETE",
-    url: "export-to-pdf" + filename,
+    url: "/export-to-pdf/" + filename,
     data: {
       token: token,
     },
