@@ -488,16 +488,42 @@ const deletePdf = async (filename) => {
 
 //******* GET ALL STUDENT *******/
 $(document).ready(() => {
-  $("#all").click( async function (e) {
+  $("#all").click(async function (e) {
     e.preventDefault();
     const token = getToken("authToken");
     const company = decodeToken(token);
     const companyId = company.data.companyInfo._id;
-    const req = {
+    const Studentsreq = {
       type: "GET",
       url: "/students/all/" + companyId,
     };
-    const res = await ajax(req)
-    
+    const res = await ajax(Studentsreq);
+    const allStudents = JSON.stringify(res.data);
+    let formData = new FormData();
+    formData.append("data", allStudents);
+    formData.append("token", token);
+
+    const request = {
+      type: "POST",
+      url: "/export-to-pdf",
+      data: formData,
+    };
+    try {
+      let response = await ajax(request);
+      const downloadReq = {
+        type: "GET",
+        url: "/exports/" + response.filename,
+      };
+      const pdfRes = await ajaxDownloader(downloadReq);
+      const pdfUrl = URL.createObjectURL(pdfRes);
+      const a = document.createElement("a");
+      a.href = pdfUrl;
+      a.download = response.filename;
+      a.click();
+      a.remove();
+      deletePdf(response.filename);
+    } catch (error) {
+      console.log(error);
+    }
   });
 });
